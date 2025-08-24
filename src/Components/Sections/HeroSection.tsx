@@ -1,0 +1,24 @@
+import React from "react";
+import Header from "./Header";
+import HeroLG from './HeroLG';
+import HeroMobile from './HeroMobile';
+
+const HeroSection = () => {
+  return (
+    <div className=" ">
+      <div className="bg-[#0058FF] min-h-[600px]  xl:min-h-[700px] rounded-3xl ">
+        {/* Mobile Hero */}
+        <div className=" lg:hidden flex items-center justify-center pt-[64px] overflow-y-hidden ">
+          <HeroMobile />
+        </div>
+
+        {/* Desktop Hero */}
+        <div className="hidden lg:block">
+          <HeroLG />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default HeroSection;
