@@ -20,6 +20,9 @@ export default function Home() {
         <GifSection />
         <Category/>
         <VirtualSales/>
+        <Features/>
+        <MobileApp/>
+        <Story/>
       </main>
     </div>
   );
