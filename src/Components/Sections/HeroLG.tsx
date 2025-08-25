@@ -157,7 +157,7 @@ const HeroLG = () => {
 
           <div
             ref={leftBoxRef}
-            className="inline-block bg-green-200 text-black rounded-xl px-3 py-1 text-lg font-bold rotate-[-30deg] shadow-[0]"
+            className="inline-block bg-green-200 text-black rounded-xl px-3  py-1 text-lg font-bold rotate-[-30deg] shadow-[0]"
           >
             %
           </div>

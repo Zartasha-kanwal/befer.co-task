@@ -1,18 +1,24 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import { useEffect, useRef } from "react";
 import worker from "../Assets/Images/manage-worker.png";
 import manage_worker from "../Assets/Images/manage-worker-optimized-1024w.avif";
 import msg_icon from "../Assets/Images/msg-icon.png";
 import sms_marketing from "../Assets/Images/sms-marketing-optimized-1024w.avif";
 import quick_books from "../Assets/Images/quickbooks.png";
 import quickbook_img from "../Assets/Images/Quick Books.png";
-import gmb_icon from '../Assets/Images/gmbicon.svg';
-import gmb_img from '../Assets/Images/GBB.png';
+import gmb_icon from "../Assets/Images/gmbicon.svg";
+import gmb_img from "../Assets/Images/GBB.png";
+import downarrow from '../Assets/Images/downarrow.png';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Features = () => {
   return (
     <>
-      <section className="relative w-full flex flex-col items-center px-2 sm:px-4 lg:px-16">
+      <section className=" card-section relative w-full flex flex-col items-center px-2 sm:px-4 lg:px-16">
         <div className="w-full flex flex-col items-center  top-0 z-20 pt-[130px]">
           <span className="mb-6 px-4 py-1 rounded-full bg-[#15B270] text-white text-sm font-semibold">
             Ad on Features
@@ -22,8 +28,8 @@ const Features = () => {
           </h2>
         </div>
 
-        <ul>
-          <li>
+        <ul className="mb-5">
+          <li className="card card-1">
             <div className="bg-[#FFDAFC] p-0 shadow-[0_4px_32px_0_rgba(0,0,0,0.10)] grid lg:grid-cols-2 grid-cols-1 mt-[128px] rounded-4xl">
               <div className="flex flex-col justify-between h-full pt-10 px-6 py-6 md:py-16 md:px-14">
                 <div className="mb-8 flex flex-row items-start gap-4 md:flex-col md:gap-0">
@@ -65,7 +71,7 @@ const Features = () => {
             </div>
           </li>
 
-          <li>
+          <li className="card card-2 ">
             <div className="bg-[#C2D6FF] p-0 shadow-[0_4px_32px_0_rgba(0,0,0,0.10)] grid lg:grid-cols-2 grid-cols-1 mt-[128px] rounded-4xl">
               <div className="flex flex-col justify-between h-full pt-10 px-6 py-6 md:py-16 md:px-14">
                 <div className="mb-8 flex flex-row items-start gap-4 md:flex-col md:gap-0">
@@ -108,7 +114,7 @@ const Features = () => {
             </div>
           </li>
 
-          <li>
+          <li className="card card-3 ">
             <div className="bg-[#CDFDD8] p-0 shadow-[0_4px_32px_0_rgba(0,0,0,0.10)] grid lg:grid-cols-2 grid-cols-1 mt-[128px] rounded-4xl">
               <div className="flex flex-col justify-between h-full pt-10 px-6 py-6 md:py-16 md:px-14">
                 <div className="mb-8 flex flex-row items-start gap-4 md:flex-col md:gap-0">
@@ -150,8 +156,7 @@ const Features = () => {
             </div>
           </li>
 
-
-          <li>
+          <li className="card card-4 ">
             <div className="bg-[#FFE8C2] p-0 shadow-[0_4px_32px_0_rgba(0,0,0,0.10)] grid lg:grid-cols-2 grid-cols-1 mt-[128px] rounded-4xl">
               <div className="flex flex-col justify-between h-full pt-10 px-6 py-6 md:py-16 md:px-14">
                 <div className="mb-8 flex flex-row items-start gap-4 md:flex-col md:gap-0">
@@ -192,8 +197,13 @@ const Features = () => {
               </div>
             </div>
           </li>
-          
         </ul>
+
+        <Image src={downarrow} alt="downarrow" className="mx-auto mb-4 h-40  sm:mt-0 select-none pointer-events-none "/>
+        <button className="inline-flex items-center bg-white text-blue-600 px-8 py-4 mb-[100px] rounded-full font-semibold text-lg shadow hover:bg-gray-100 transition mt-2 cursor-pointer">
+            Start your Business
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="ml-2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </button>
       </section>
     </>
   );

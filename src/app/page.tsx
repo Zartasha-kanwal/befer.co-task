@@ -3,6 +3,8 @@ import Features from "@/Components/Sections/Features";
 import GifSection from "@/Components/Sections/GifSection";
 import Header from "@/Components/Sections/Header";
 import HeroSection from "@/Components/Sections/HeroSection";
+import MobileApp from "@/Components/Sections/MobileApp";
+import Story from "@/Components/Sections/Story";
 import VirtualSales from "@/Components/Sections/VirtualSales";
 import Image from "next/image";
 
@@ -19,6 +21,8 @@ export default function Home() {
         <Category/>
         <VirtualSales/>
         <Features/>
+        <MobileApp/>
+        <Story/>
       </main>
     </div>
   );
