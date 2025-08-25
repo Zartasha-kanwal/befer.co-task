@@ -37,7 +37,7 @@ const HeroLG = () => {
 
       gsap.to(imageRef.current, {
         y: y,
-        rotation: x,
+        rotation: x*1,
         duration: 0.8,
         ease: "power3.out",
         transformOrigin: "50% 80%",
@@ -145,13 +145,13 @@ const HeroLG = () => {
   }, []);
 
   return (
-    <div className="relative  h-[700px]  flex items-center justify-center overflow-hidden">
+    <div className="relative  min-h-[700px]  flex items-center justify-center overflow-hidden">
       <div className=" grid grid-cols-3   w-full ">
         <div
           ref={leftSectionRef}
           className=" w-full flex flex-col items-start justify-end "
         >
-          <h1 className="text-white font-black  xl:text-6xl 2xl:text-7xl  font-myFont tracking-tight text-start px-9">
+          <h1 className="text-white font-myFont font-bold xl:text-6xl 2xl:text-7xl   tracking-tight text-start px-9">
             Customers
           </h1>
 
