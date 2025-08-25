@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "./Header";
 import HeroLG from './HeroLG';
 import HeroMobile from './HeroMobile';
 
