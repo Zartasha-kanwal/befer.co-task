@@ -1,12 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
 import "./globals.css";
-
-const poppins = Poppins({
-  variable: "--font-poppins", // optional CSS variable
-  subsets: ["latin"],
-  weight: ["400", "500", "700"], // specify the weights you need
-});
 
 export const metadata: Metadata = {
   title: "Befer - Professional Tools For Service Providers",
@@ -20,11 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${poppins.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

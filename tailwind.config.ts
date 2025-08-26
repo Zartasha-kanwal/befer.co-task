@@ -9,7 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        myFont: ['Poppins', 'sans-serif'], 
+        myFont: ['SF Pro Rounded', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        sans: ['SF Pro Rounded', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
     },
   },
