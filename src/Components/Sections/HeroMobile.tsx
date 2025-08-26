@@ -89,6 +89,8 @@ const HeroMobile = () => {
             src={hero_person}
             className="overflow-hidden  h-full -z-0 transform -translate-y-12"
             alt="hero-person"
+            style={{width:"auto", height:"auto" }}
+            priority
           />
           <div className="absolute top-[30%] left-[20%]">
             <button
@@ -103,9 +105,9 @@ const HeroMobile = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="ml-2"
               >
                 <path d="M5 12h14"></path>

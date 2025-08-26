@@ -1,11 +1,10 @@
 "use client";
 import Image from "next/image";
-import React, { Children, useEffect, useRef } from "react";
+import React, {  useEffect, useRef } from "react";
 import downarrow from "../Assets/Images/downarrow.png";
 import Storycard from "./Storycard";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import StorycardCarousel from "./Storycarousel";
 import Storycarousel from "./Storycarousel";
 
 
@@ -47,6 +46,7 @@ const Story = () => {
             src={downarrow}
             alt=""
             className="arrow mx-auto mb-8 w-28 h-32 select-none pointer-events-none"
+            style={{width:"auto", height:"auto" }}
           />
         </div>
         <div className="flex flex-col items-center">
@@ -63,8 +63,8 @@ const Story = () => {
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               className="ml-2"
             >
               <path d="M5 12h14"></path>

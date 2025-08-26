@@ -188,13 +188,14 @@ const Category = () => {
           src={downarrow}
           alt=""
           className="arrow mx-auto mb-8 w-28 h-32 select-none pointer-events-none"
+          style={{width:"auto", height:"auto" }}
         />
       </div>
       <div ref={ctaRef} className="flex flex-col items-center">
         <span className="text-white text-[16px] mb-4">
           Ready to grow your service business?
         </span>
-        <button className="inline-flex items-center bg-white text-blue-600 px-6 py-3 rounded-full font-semibold text-base shadow hover:bg-gray-100 transition">
+        <button className="inline-flex items-center bg-white text-blue-600 px-6 py-3 rounded-full font-semibold text-base shadow hover:bg-gray-100 transition cursor-pointer">
           Start your Business
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -204,8 +205,8 @@ const Category = () => {
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             className="ml-2"
           >
             <path d="M5 12h14"></path>

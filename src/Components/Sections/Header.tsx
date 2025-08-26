@@ -17,7 +17,7 @@ const Header = () => {
     >
       <header className=" w-full box-border lg:bg-[#FFFFFFF2] bg-white/90 backdrop-blur-sm lg:rounded-4xl py-[12px] lg:px-[24px] px-[16px] flex items-center justify-between ">
         <div>
-          <Image src={logo} alt="Logo" className="w-[110px] h-[38px] lg:h-[] lg:w-[]"/>
+          <Image src={logo} alt="Logo" className="w-[110px] h-[38px]  " />
         </div>
         {/* Navigation */}
         <nav>

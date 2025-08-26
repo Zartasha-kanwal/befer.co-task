@@ -119,6 +119,7 @@ const VirtualSales = () => {
                 src={ai_women}
                 alt="Ai-women"
                 className="w-[100%] h-[100%] object-cover object-center"
+                style={{width:"auto", height:"auto" }}
               />
               <div className=" z-10 flex gap-2 p-0 pb-6 justify-center w-full absolute bottom-0 left-0">
                 <span className="bg-[#F7FFD2] text-gray-900 text-xs font-semibold rounded-full px-3 py-1 shadow border border-green-200">
@@ -184,9 +185,9 @@ const VirtualSales = () => {
                   height="20"
                   fill="none"
                   stroke="#181F2A"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   viewBox="0 0 24 24"
                   className="rotate-[-35deg]"
                 >
@@ -211,9 +212,9 @@ const VirtualSales = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="ml-2"
               >
                 <path d="M5 12h14"></path>

@@ -33,6 +33,7 @@ const MobileApp = () => {
                 src={googleplay}
                 alt="googleplay"
                 className="h-10 sm:h-14 w-auto"
+                style={{width:"auto", height:"auto" }}
               />
             </div>
           </div>
@@ -48,6 +49,7 @@ const MobileApp = () => {
               className="w-full h-auto object-contain drop-shadow-xl "
               width={600}
               height={400}
+              style={{width:"auto", height:"auto" }}
             />
           </div>
         </div>

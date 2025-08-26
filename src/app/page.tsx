@@ -4,10 +4,9 @@ import GifSection from "@/Components/Sections/GifSection";
 import Header from "@/Components/Sections/Header";
 import HeroSection from "@/Components/Sections/HeroSection";
 import MobileApp from "@/Components/Sections/MobileApp";
+import Pricing from "@/Components/Sections/Pricing";
 import Story from "@/Components/Sections/Story";
 import VirtualSales from "@/Components/Sections/VirtualSales";
-import Image from "next/image";
-
 export default function Home() {
   return (
     <div className="relative bg-[#111927] w-full min-h-screen">
@@ -23,6 +22,7 @@ export default function Home() {
         <Features/>
         <MobileApp/>
         <Story/>
+        <Pricing/>
       </main>
     </div>
   );

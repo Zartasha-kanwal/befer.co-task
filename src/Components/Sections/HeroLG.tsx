@@ -166,24 +166,26 @@ const HeroLG = () => {
             Professional Tools for Trusted Service Providers.
           </p>
 
-          <div className="flex gap-[6px] pl-9 flex-wrap ">
-            <button className="py-[4px] px-[12px] text-blue-700 bg-white/90 rounded-full text-[14px] font-medium cursor-pointer">
+          <div className="flex gap-[6px] pl-8 flex-wrap">
+            <button className="py-[4px] px-[12px] text-blue-700 bg-white/90 rounded-full text-[13px] font-medium cursor-pointer">
               Reliability
             </button>
-            <button className="py-[4px] px-[12px] text-yellow-800 bg-yellow-100 rounded-full text-[14px] font-medium cursor-pointer">
+            <button className="py-[4px] px-[12px] text-yellow-800 bg-yellow-100 rounded-full text-[13px] font-medium cursor-pointer">
               Customer Satisfaction
             </button>
-            <button className="py-[4px] px-[12px] text-blue-700 bg-white/90 rounded-full text-[14px] font-medium cursor-pointer">
+            <button className="py-[4px] px-[12px] text-blue-700 bg-white/90 rounded-full text-[13px] font-medium cursor-pointer">
               Efficiency
             </button>
           </div>
         </div>
-        <div className=" relative -bottom-2  w-[180px] md:w-[300px] xl:w-[340px] 2xl:w-[400px] h-[240px] md:h-[400px] xl:h-[453px] 2xl:h-[533px] transform translate-y-[80px] translate-x-5 ">
+        <div className=" relative -bottom-2 md:w-[300px] xl:w-[300px] 2xl:w-[400px] h-[240px] md:h-[400px] xl:h-[453px] 2xl:h-[533px] transform translate-y-[80px] translate-x-14 ">
           <Image
             ref={imageRef}
             src={hero_person}
-            className="overflow-hidden  h-full "
+            className="overflow-hidden   "
             alt="hero-person"
+            style={{width:"auto", height:"auto" }}
+            priority
           />
         </div>
         <div
@@ -211,9 +213,9 @@ const HeroLG = () => {
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               className="ml-2"
             >
               <path d="M5 12h14"></path>

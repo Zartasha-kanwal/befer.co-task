@@ -50,7 +50,7 @@ const Storycarousel: React.FC = () => {
             </p>
             <div className="flex items-center gap-3 relative z-10">
               <div className="w-12 h-12 rounded-full bg-gray-400 flex-shrink-0 overflow-hidden">
-                <Image src={amanda} alt="amanda" />
+                <Image src={amanda} alt="amanda" style={{width:"auto", height:"auto" }}/>
               </div>
               <div className="flex flex-col">
                 <div className="text-white font-semibold text-sm">
@@ -97,7 +97,7 @@ const Storycarousel: React.FC = () => {
             </p>
             <div className="flex items-center gap-3 relative z-10">
               <div className="w-12 h-12 rounded-full bg-gray-400 flex-shrink-0 overflow-hidden">
-                <Image src={amanda} alt="amanda" />
+                <Image src={amanda} alt="amanda" style={{width:"auto", height:"auto" }}/>
               </div>
               <div className="flex flex-col">
                 <div className="text-white font-semibold text-sm">
@@ -142,7 +142,7 @@ const Storycarousel: React.FC = () => {
             </p>
             <div className="flex items-center gap-3 relative z-10">
               <div className="w-12 h-12 rounded-full bg-gray-400 flex-shrink-0 overflow-hidden">
-                <Image src={amanda} alt="amanda" />
+                <Image src={amanda} alt="amanda" style={{width:"auto", height:"auto" }}/>
               </div>
               <div className="flex flex-col">
                 <div className="text-white font-semibold text-sm">
@@ -187,7 +187,7 @@ const Storycarousel: React.FC = () => {
             </p>
             <div className="flex items-center gap-3 relative z-10">
               <div className="w-12 h-12 rounded-full bg-gray-400 flex-shrink-0 overflow-hidden">
-                <Image src={amanda} alt="amanda" />
+                <Image src={amanda} alt="amanda" style={{width:"auto", height:"auto" }}/>
               </div>
               <div className="flex flex-col">
                 <div className="text-white font-semibold text-sm">
@@ -230,11 +230,11 @@ const Storycarousel: React.FC = () => {
             <p className="text-white text-xs leading-relaxed mb-6 relative z-10">
               "The automated scheduling and payment reminders have saved me
               countless hours. I can focus on the work I love instead of chasing
-              payments and managing calendars."
+              payments and managing calendars.
             </p>
             <div className="flex items-center gap-3 relative z-10">
               <div className="w-12 h-12 rounded-full bg-gray-400 flex-shrink-0 overflow-hidden">
-                <Image src={amanda} alt="amanda" />
+                <Image src={amanda} alt="amanda" style={{width:"auto", height:"auto" }}/>
               </div>
               <div className="flex flex-col">
                 <div className="text-white font-semibold text-sm">
@@ -279,7 +279,7 @@ const Storycarousel: React.FC = () => {
             </p>
             <div className="flex items-center gap-3 relative z-10">
               <div className="w-12 h-12 rounded-full bg-gray-400 flex-shrink-0 overflow-hidden">
-                <Image src={amanda} alt="amanda" />
+                <Image src={amanda} alt="amanda" style={{width:"auto", height:"auto" }}/>
               </div>
               <div className="flex flex-col">
                 <div className="text-white font-semibold text-sm">

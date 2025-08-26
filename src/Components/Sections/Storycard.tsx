@@ -50,7 +50,7 @@ const Storycard = () => {
                     d="M 30 0 L 0 0 0 30"
                     fill="none"
                     stroke="#ffffff"
-                    stroke-width="0.8"
+                    strokeWidth="0.8"
                   ></path>
                 </pattern>
               </defs>
@@ -91,7 +91,7 @@ const Storycard = () => {
                     d="M 30 0 L 0 0 0 30"
                     fill="none"
                     stroke="#ffffff"
-                    stroke-width="0.8"
+                    strokeWidth="0.8"
                   ></path>
                 </pattern>
               </defs>
@@ -130,7 +130,7 @@ const Storycard = () => {
                     d="M 30 0 L 0 0 0 30"
                     fill="none"
                     stroke="#ffffff"
-                    stroke-width="0.8"
+                    strokeWidth="0.8"
                   ></path>
                 </pattern>
               </defs>
@@ -169,7 +169,7 @@ const Storycard = () => {
                     d="M 30 0 L 0 0 0 30"
                     fill="none"
                     stroke="#ffffff"
-                    stroke-width="0.8"
+                    strokeWidth="0.8"
                   ></path>
                 </pattern>
               </defs>
@@ -208,7 +208,7 @@ const Storycard = () => {
                     d="M 30 0 L 0 0 0 30"
                     fill="none"
                     stroke="#ffffff"
-                    stroke-width="0.8"
+                    strokeWidth="0.8"
                   ></path>
                 </pattern>
               </defs>
@@ -247,7 +247,7 @@ const Storycard = () => {
                     d="M 30 0 L 0 0 0 30"
                     fill="none"
                     stroke="#ffffff"
-                    stroke-width="0.8"
+                    strokeWidth="0.8"
                   ></path>
                 </pattern>
               </defs>

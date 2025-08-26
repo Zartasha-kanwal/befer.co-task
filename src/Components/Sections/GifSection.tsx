@@ -82,6 +82,7 @@ const GifSection: React.FC = () => {
               alt={activeTabData.alt || ""}
               unoptimized
               priority
+              style={{width:"auto", height:"auto" }}
             />
           )
         )}
