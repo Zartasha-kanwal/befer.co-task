@@ -6,7 +6,7 @@ import mobile_app from "../Assets/Images/befer-mobile-app.png";
 const MobileApp = () => {
   return (
     <>
-      <section className="relative bg-[#0058FF] rounded-3xl overflow-hidden min-h-[600px] grid lg:grid-cols-2 grid-cols-1 px-4 sm:px-6 md:px-8 py-16 md:py-24 md:pb-0 pb-0  mb-16 md:mb-24">
+      <section className="relative bg-[#0058FF] rounded-3xl overflow-hidden min-h-[600px] flex items-center justify-center px-4 sm:px-6 md:px-8 py-16 md:py-24 md:pb-0 pb-0  mb-16 md:mb-24">
         <div className="flex flex-col  gap-12 lg:gap-16 items-center lg:max-w-[80%]">
           <div className="text-white space-y-8 pb-0 lg:pb-16">
             <div className="inline-flex items-center bg-white/20 rounded-full px-4 py-2 text-sm font-medium text-white">
@@ -33,26 +33,25 @@ const MobileApp = () => {
                 src={googleplay}
                 alt="googleplay"
                 className="h-10 sm:h-14 w-auto"
-                style={{width:"auto", height:"auto" }}
+                style={{ width: "auto", height: "auto" }}
               />
             </div>
           </div>
         </div>
 
-        <div className="">
-
-        <div className="  flex items-end justify-center h-full mt-[60px] lg:mt-[100px]  ">
-          <div className=" h-full w-full max-w-[400px] sm:max-w-[500px] lg:max-w-[600px] ">
-            <Image
-              src={mobile_app}
-              alt="Befer Mobile App Interface"
-              className="w-full h-auto object-contain drop-shadow-xl "
-              width={600}
-              height={400}
-              style={{width:"auto", height:"auto" }}
-            />
+        <div>
+          <div className="  flex items-end justify-center h-full mt-[60px] lg:mt-[100px]  ">
+            <div className=" h-full w-full max-w-[400px] sm:max-w-[500px] lg:max-w-[600px] ">
+              <Image
+                src={mobile_app}
+                alt="Befer Mobile App Interface"
+                className="w-full h-auto object-contain drop-shadow-xl "
+                width={600}
+                height={400}
+                style={{ width: "auto", height: "auto" }}
+              />
+            </div>
           </div>
-        </div>
         </div>
       </section>
     </>

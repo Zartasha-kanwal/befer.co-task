@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
 import worker from "../Assets/Images/manage-worker.png";
-import manage_worker from "../Assets/Images/manage-worker-optimized-1024w.avif";
+import manage_worker from "../Assets/Images/manage-worker-optimized-1024w.png";
 import msg_icon from "../Assets/Images/msg-icon.png";
-import sms_marketing from "../Assets/Images/sms-marketing-optimized-1024w.avif";
+import sms_marketing from "../Assets/Images/sms-marketing-optimized-1024w.png";
 import quick_books from "../Assets/Images/quickbooks.png";
 import quickbook_img from "../Assets/Images/Quick Books.png";
 import gmb_icon from "../Assets/Images/gmbicon.svg";

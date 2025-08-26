@@ -37,7 +37,7 @@ const HeroLG = () => {
 
       gsap.to(imageRef.current, {
         y: y,
-        rotation: x*1,
+        rotation: x * 1,
         duration: 0.8,
         ease: "power3.out",
         transformOrigin: "50% 80%",
@@ -146,10 +146,10 @@ const HeroLG = () => {
 
   return (
     <div className="relative  min-h-[700px]  flex items-center justify-center overflow-hidden">
-      <div className=" grid grid-cols-3   w-full ">
+      <div className=" flex justify-center items-end gap-20  w-full ">
         <div
           ref={leftSectionRef}
-          className=" w-full flex flex-col items-start justify-end "
+          className=" flex flex-col items-start justify-end "
         >
           <h1 className="text-white font-myFont font-bold xl:text-6xl 2xl:text-7xl   tracking-tight text-start px-9">
             Customers
@@ -178,19 +178,19 @@ const HeroLG = () => {
             </button>
           </div>
         </div>
-        <div className=" relative -bottom-2 md:w-[300px] xl:w-[300px] 2xl:w-[400px] h-[240px] md:h-[400px] xl:h-[453px] 2xl:h-[533px] transform translate-y-[80px] translate-x-14 ">
+        <div className=" relative -bottom-20 md:w-[300px] xl:w-[300px] 2xl:w-[400px] h-[240px] md:h-[400px] xl:h-[453px] 2xl:h-[533px] transform -translate-x-12 ">
           <Image
             ref={imageRef}
             src={hero_person}
             className="overflow-hidden   "
             alt="hero-person"
-            style={{width:"auto", height:"auto" }}
+            style={{ width: "auto", height: "auto" }}
             priority
           />
         </div>
         <div
           ref={rightSectionRef}
-          className=" relative flex flex-col items-end gap-[70px] justify-end px-9 py-6"
+          className=" relative flex flex-col items-end gap-[70px] justify-end  py-6"
         >
           <h1 className="text-white font-extrabold text-6xl 2xl:text-7xl tracking-tight pb-[8px] text-center">
             Growth

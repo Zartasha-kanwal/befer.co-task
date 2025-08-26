@@ -6,7 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
-import ai_women from "../Assets/Images/ai-sales-optimized-1024w.avif";
+import ai_women from "../Assets/Images/ai-sales-optimized-1024w.jpg";
 
 const VirtualSales = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
