@@ -49,13 +49,14 @@ export default function MobileTestimonialCarousel() {
   return (
     <div className="w-full px-4 lg:hidden mb-16">
       <Swiper
-       modules={[Pagination, Autoplay]}
-  spaceBetween={24}
-  slidesPerView={1}
-  pagination={{ el: ".custom-pagination", clickable: true }}
-  autoplay={{ delay: 4000, disableOnInteraction: false }}
-  loop={true}
-  className="testimonial-swiper pb-10"
+        modules={[Pagination, Autoplay]}
+        spaceBetween={24}
+        slidesPerView={1}
+        pagination={{ el: ".custom-pagination", clickable: true }}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        speed={600}
+        loop={true}
+        className="testimonial-swiper pb-10"
       >
         {testimonials.map((t, i) => (
           <SwiperSlide key={i}>

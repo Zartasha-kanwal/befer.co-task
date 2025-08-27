@@ -205,7 +205,6 @@ const Features = () => {
           src={downarrow}
           alt="downarrow"
           className="mx-auto mb-4 h-40  sm:mt-0 select-none pointer-events-none "
-         
         />
         <button className="inline-flex items-center bg-white text-blue-600 px-8 py-4 mb-[100px] rounded-full font-semibold text-lg shadow hover:bg-gray-100 transition mt-2 cursor-pointer">
           Start your Business
