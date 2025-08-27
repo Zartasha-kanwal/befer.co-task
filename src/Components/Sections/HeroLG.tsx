@@ -197,7 +197,7 @@ const HeroLG = () => {
           </h1>
           <div
             ref={rightBoxRef}
-            className="absolute  right-[35%] top-[47%] hidden lg:block "
+            className="absolute  right-[35%] top-0 hidden lg:block "
           >
             <span className="inline-block bg-yellow-200 text-black rounded-xl px-4 py-1 text-lg font-bold rotate-[27deg] ">
               $

@@ -1,5 +1,7 @@
 import Category from "@/Components/Sections/Category";
+import Faq from "@/Components/Sections/Faq";
 import Features from "@/Components/Sections/Features";
+import Footer from "@/Components/Sections/Footer";
 import GifSection from "@/Components/Sections/GifSection";
 import Header from "@/Components/Sections/Header";
 import HeroSection from "@/Components/Sections/HeroSection";
@@ -23,6 +25,8 @@ export default function Home() {
         <MobileApp/>
         <Story/>
         <Pricing/>
+        <Faq/>
+        <Footer/>
       </main>
     </div>
   );

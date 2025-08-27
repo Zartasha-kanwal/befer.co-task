@@ -25,7 +25,6 @@ const Header = () => {
             {navItems.map((item) => (
               <li key={item}>
                 <a
-                  href={`#${item.replace(/\s+/g, "").toLowerCase()}`}
                   className="text-[#000] text-[16px] hover:text-[#0058FF] font-myFont font-medium cursor-pointer"
                 >
                   {item}
