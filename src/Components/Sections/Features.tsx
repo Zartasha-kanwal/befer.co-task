@@ -14,7 +14,7 @@ import downarrow from "../Assets/Images/downarrow.png";
 const Features = () => {
   return (
     <>
-      <section className=" relative w-full flex flex-col items-center px-2 sm:px-4 lg:px-16">
+      <section id="features" className=" relative w-full flex flex-col items-center px-2 sm:px-4 lg:px-16">
         <div className=" cards-heading w-full flex flex-col items-center  top-0 z-20 pt-[130px]">
           <span className="mb-6 px-4 py-1 rounded-full bg-[#15B270] text-white text-sm font-semibold">
             Ad on Features
@@ -205,7 +205,7 @@ const Features = () => {
           src={downarrow}
           alt="downarrow"
           className="mx-auto mb-4 h-40  sm:mt-0 select-none pointer-events-none "
-          style={{ width: "auto", height: "auto" }}
+         
         />
         <button className="inline-flex items-center bg-white text-blue-600 px-8 py-4 mb-[100px] rounded-full font-semibold text-lg shadow hover:bg-gray-100 transition mt-2 cursor-pointer">
           Start your Business

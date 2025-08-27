@@ -4,7 +4,7 @@ import HeroMobile from './HeroMobile';
 
 const HeroSection = () => {
   return (
-    <div className=" ">
+    <div id="home">
       <div className="bg-[#0058FF] min-h-[600px]  xl:min-h-[500px] rounded-3xl  lg:-mt-12">
         {/* Mobile Hero */}
         <div className=" lg:hidden flex items-center justify-center pt-[64px] overflow-y-hidden ">

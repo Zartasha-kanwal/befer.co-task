@@ -146,12 +146,12 @@ const HeroLG = () => {
 
   return (
     <div className="relative  min-h-[700px]  flex items-center justify-center overflow-hidden">
-      <div className=" flex justify-center items-end gap-20  w-full ">
+      <div className=" flex justify-center items-end gap-16  w-full ">
         <div
           ref={leftSectionRef}
-          className=" flex flex-col items-start justify-end "
+          className=" flex flex-col items-start justify-end px-4  "
         >
-          <h1 className="text-white font-myFont font-bold xl:text-6xl 2xl:text-7xl   tracking-tight text-start px-9">
+          <h1 className="text-white font-extrabold lg:text-6xl xl:text-6xl 2xl:text-7xl   tracking-tight text-start px-9  my-1">
             Customers
           </h1>
 
@@ -178,7 +178,7 @@ const HeroLG = () => {
             </button>
           </div>
         </div>
-        <div className=" relative -bottom-20 md:w-[300px] xl:w-[300px] 2xl:w-[400px] h-[240px] md:h-[400px] xl:h-[453px] 2xl:h-[533px] transform -translate-x-12 ">
+        <div className=" relative -bottom-20  xl:w-[300px] lg:w-[300px]  2xl:w-[400px] h-[240px]  lg:h-[453px] xl:h-[453px] 2xl:h-[533px]  ">
           <Image
             ref={imageRef}
             src={hero_person}
@@ -190,7 +190,7 @@ const HeroLG = () => {
         </div>
         <div
           ref={rightSectionRef}
-          className=" relative flex flex-col items-end gap-[70px] justify-end  py-6"
+          className=" relative w-fit flex flex-col items-end gap-[70px] justify-end  py-6 px-4 "
         >
           <h1 className="text-white font-extrabold text-6xl 2xl:text-7xl tracking-tight pb-[8px] text-center">
             Growth
@@ -204,7 +204,7 @@ const HeroLG = () => {
             </span>
           </div>
 
-          <button className="inline-flex items-center bg-white text-blue-600  px-8 py-3 rounded-full font-semibold text-xl shadow   cursor-pointer  ">
+          <button className="inline-flex items-center bg-white text-blue-600  px-8 py-3 rounded-full font-semibold text-xl shadow   cursor-pointer whitespace-nowrap ">
             Start your Business
             <svg
               xmlns="http://www.w3.org/2000/svg"

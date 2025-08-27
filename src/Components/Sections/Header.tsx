@@ -1,15 +1,22 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import logo from "../Assets/Images/Logo.png";
 
-const navItems: string[] = [
-  "Home",
-  "Feature",
-  "How it works",
-  "Who is it for?",
-  "FAQ's",
+const navItems: { label: string; id: string }[] = [
+  { label: "Home", id: "home" },
+  { label: "Feature", id: "features" },
+  { label: "How it works", id: "howitworks" },
+  { label: "Who is it for?", id: "whoisitfor" },
+  { label: "FAQ's", id: "faq" },
 ];
 const Header = () => {
+  const handleScroll = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <div
       className="lg:px-[40px] sticky lg:top-[30px] top-0 z-50 bg-[#0058FF] lg:bg-transparent 
@@ -23,12 +30,13 @@ const Header = () => {
         <nav>
           <ul className="lg:flex hidden space-x-[40px]">
             {navItems.map((item) => (
-              <li key={item}>
-                <a
-                  className="text-[#000] text-[16px] hover:text-[#0058FF] font-myFont font-medium cursor-pointer"
+              <li key={item.id}>
+                <button
+                  onClick={() => handleScroll(item.id)}
+                  className="text-[#000] text-[16px] hover:text-[#0058FF] font-myFont font-medium cursor-pointer bg-transparent border-0"
                 >
-                  {item}
-                </a>
+                  {item.label}
+                </button>
               </li>
             ))}
           </ul>

@@ -6,7 +6,7 @@ import mobile_app from "../Assets/Images/befer-mobile-app.png";
 const MobileApp = () => {
   return (
     <>
-      <section className="relative bg-[#0058FF] rounded-3xl overflow-hidden min-h-[600px] flex items-center justify-center px-4 sm:px-6 md:px-8 py-16 md:py-24 md:pb-0 pb-0  mb-16 md:mb-24">
+      <section className="relative bg-[#0058FF] rounded-3xl overflow-hidden min-h-[600px] flex lg:flex-row flex-col lg:items-end justify-center px-4 sm:px-6 md:px-8 py-16 md:py-24 md:pb-0 pb-0  mb-16 md:mb-24">
         <div className="flex flex-col  gap-12 lg:gap-16 items-center lg:max-w-[80%]">
           <div className="text-white space-y-8 pb-0 lg:pb-16">
             <div className="inline-flex items-center bg-white/20 rounded-full px-4 py-2 text-sm font-medium text-white">

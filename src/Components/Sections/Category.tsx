@@ -166,7 +166,7 @@ const Category = () => {
   }, []);
 
   return (
-    <section className="relative py-24 sm:py-24 flex flex-col items-center">
+    <section id="whoisitfor" className="relative py-24 sm:py-24 flex flex-col items-center">
       <span className="mb-6 px-4 py-1 rounded-full bg-[#15B270] text-white text-sm font-semibold">
         Who is it for?
       </span>

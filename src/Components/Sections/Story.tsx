@@ -39,7 +39,8 @@ const Story = () => {
         </h2>
 
         <Storycard />
-        <Storycarousel/>
+        <div className="flex items-center justify-center w-[60%]"> <Storycarousel/> </div>
+        
 
         <div>
           <Image

@@ -71,7 +71,7 @@ const VirtualSales = () => {
   }, []);
   return (
     <>
-      <section
+      <section id="howitworks"
         ref={sectionRef}
         className="relative w-full flex justify-center items-center py-12 sm:py-16 md:py-[100px] px-4 mt-0 md:mt-0 sm:px-6 md:px-8 lg:px-12 bg-[#1D293C] overflow-hidden rounded-3xl shadow-2xl mx-auto"
       >

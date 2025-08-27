@@ -40,7 +40,7 @@ const HeroMobile = () => {
   }, []);
 
   return (
-    <div className="relative flex items-center justify-center h-full pt-[30px]">
+    <div className="relative flex items-center justify-center h-full pt-[30px] ">
       <div className=" grid grid-cols-1 place-items-center overflow-hidden ">
         <div ref={boxRef} className="z-10 px-[16px]">
           <h1 className="text-white font-[900] text-4xl sm:text-5xl font-myFont tracking-tight text-center">
@@ -84,18 +84,17 @@ const HeroMobile = () => {
           </div>
         </div>
 
-        <div className="h-full relative">
+        <div className="h-full relative  ">
           <Image
             src={hero_person}
-            className="overflow-hidden  h-full -z-0 transform -translate-y-12"
+            className="overflow-hidden scale-110 object-contain object-center"
             alt="hero-person"
-            style={{width:"auto", height:"auto" }}
             priority
           />
-          <div className="absolute top-[30%] left-[20%]">
+          <div className="absolute top-1/3 right-1/3 max-[320px]:right-1/6">
             <button
               ref={ctaButtonRef}
-              className="flex items-center py-[8px] px-[20px] text-blue-700 bg-white/90 rounded-full text-[16px] font-medium  cursor-pointer"
+              className="flex items-center py-[8px] px-[20px] text-blue-700 bg-white/90 rounded-full text-[16px] max-sm:text-xs font-medium  cursor-pointer whitespace-nowrap"
             >
               Start your Business
               <svg
