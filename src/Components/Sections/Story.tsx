@@ -39,7 +39,7 @@ const Story = () => {
         </h2>
 
         <Storycard />
-        <div className="flex items-center justify-center w-[60%]"> <Storycarousel/> </div>
+        <div className="flex items-center justify-center w-[60%] max-sm:w-[90%]"> <Storycarousel/> </div>
         
 
         <div>
