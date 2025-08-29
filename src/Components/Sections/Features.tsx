@@ -65,12 +65,12 @@ const features = [
     iconSrc: gmb_icon,
   },
 ];
-const Features = ({ id }: { id?: string }) => {
+const Features = ({ id = "features" }: { id?: string }) => {
 
   const headingHeight = 96; 
   return (
     <section
-      id="features"
+     id={id}
       className="relative w-full flex flex-col items-center px-2 sm:px-4 md:px-0"
       style={{ minHeight: `calc(${features.length} * 520px)` }}
     >
@@ -92,7 +92,7 @@ const Features = ({ id }: { id?: string }) => {
             className="card"
             style={
               {
-                ["--index" as any]: features.length + i,
+                ["--index" as string]: features.length + i,
                 top: `${headingHeight + 32}px`,
               } as React.CSSProperties
             }
