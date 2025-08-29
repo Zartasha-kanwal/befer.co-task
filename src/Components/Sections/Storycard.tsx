@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Storycard = () => {
-     const card1Ref = useRef(null);
+  const card1Ref = useRef(null);
   const card2Ref = useRef(null);
   const card3Ref = useRef(null);
   const card4Ref = useRef(null);

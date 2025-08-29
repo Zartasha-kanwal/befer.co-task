@@ -89,39 +89,88 @@ body {
     Roboto, sans-serif;
 }
 
-.card-1 {
-  position: sticky;
-    top: 200px;
-  height: calc(100vh - 40px);
-  z-index: 1;
+.cardsList {
+  --card-height: 520px;
+  --card-margin: 4vw;
+  --card-top-offset: 1em;
+  --numcards: 4;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(var(--numcards), var(--card-height));
+  gap: var(--card-margin);
+  padding-bottom: calc(var(--numcards) * var(--card-top-offset));
+  margin-bottom: var(--card-margin);
 }
 
-.card-2 {
+.card {
   position: sticky;
-     top: 200px;/* same 40px from top */
-  height: calc(100vh - 40px);
-  z-index: 2;
-  padding-top: 16px;
+  top: 0;
+  padding-top: calc(var(--index) * var(--card-top-offset));
+  z-index: var(--index);
 }
 
-.card-3 {
-  position: sticky;
-  top: 200px;
-  height: calc(100vh - 40px);
-  z-index: 3;
-  padding-top: 32px;
+.cardContent {
+  box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.1), 0 1em 2em rgba(0, 0, 0, 0.1);
+  background: #fffaf2;
+  color: #131212;
+  border-radius: 2rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 1rem;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-.card-4 {
-  position: sticky;
-    top: 200px;
-  height: calc(100vh - 40px);
-  z-index: 4;
-  padding-top: 48px;
+@media (min-width: 768px) {
+  .cardContent {
+    display: grid;
+    grid-template-areas: "text img";
+    grid-template-columns: 1fr 1fr;
+    padding: 1.4em;
+  }
 }
 
+/* Mobile image container styles */
+.cardImageContainer {
+  padding: 1rem 1rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-/* Custom Swiper pagination bullets */
+@media (min-width: 768px) {
+  .cardImageContainer {
+    padding: 1.5rem 2.5rem;
+  }
+}
+
+.cardText {
+  grid-area: text;
+  width: 95%;
+  max-width: 800px;
+  place-self: center;
+  text-align: left;
+  display: grid;
+  gap: 1em;
+  place-items: start;
+}
+
+.cardFigure {
+  grid-area: img;
+  overflow: hidden;
+}
+
+.cardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: .4em;
+} 
+
 .custom-pagination .swiper-pagination-bullet {
   @apply bg-[#FFFFFF4D] opacity-60 w-2 h-2 rounded-full;
 }
@@ -130,3 +179,13 @@ body {
   @apply bg-[#FFFFFF] opacity-100 w-6 h-2;
 }
 
+
+
+/* login swiper pagination bullets */
+.login-pagination .swiper-pagination-bullet {
+  @apply bg-[#FFFFFF4D] opacity-60 w-2 h-2 rounded-full;
+}
+
+.login-pagination .swiper-pagination-bullet-active {
+  @apply bg-[#FFFFFF] opacity-100 w-6 h-2;
+}

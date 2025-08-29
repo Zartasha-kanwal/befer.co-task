@@ -146,7 +146,7 @@ const HeroLG = () => {
 
   return (
     <div className="relative  min-h-[700px]  flex items-center justify-center overflow-hidden">
-      <div className=" flex justify-center items-end gap-16  w-full ">
+      <div className=" flex justify-center items-end   w-full ">
         <div
           ref={leftSectionRef}
           className=" flex flex-col items-start justify-end px-4  "
@@ -178,16 +178,17 @@ const HeroLG = () => {
             </button>
           </div>
         </div>
-        <div className=" relative -bottom-20  xl:w-[300px] lg:w-[300px]  2xl:w-[400px] h-[240px]  lg:h-[453px] xl:h-[453px] 2xl:h-[533px]  ">
+        <div className="relative -bottom-24 xl:w-[300px] lg:w-[300px] 2xl:w-[400px] h-[453px] xl:h-[453px] 2xl:h-[533px]">
           <Image
             ref={imageRef}
             src={hero_person}
-            className="overflow-hidden   "
             alt="hero-person"
-            style={{ width: "auto", height: "auto" }}
             priority
+            fill
+            className="object-contain"
           />
         </div>
+
         <div
           ref={rightSectionRef}
           className=" relative w-fit flex flex-col items-end gap-[70px] justify-end  py-6 px-4 "

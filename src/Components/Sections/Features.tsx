@@ -10,222 +10,185 @@ import gmb_icon from "../Assets/Images/gmbicon.svg";
 import gmb_img from "../Assets/Images/GBB.png";
 import downarrow from "../Assets/Images/downarrow.png";
 
+const features = [
+  {
+    title: "Manage Workers",
+    subtitle: "Workforce Management Made Simple.",
+    desc: [
+      "Assign and schedule orders instantly",
+      "Monitor job progress in real-time",
+      "View productivity insights and worker logs",
+    ],
+    illustration: manage_worker,
+    bg: "#FFDAFC",
+    iconBg: "#EE3BDF",
+    iconSrc: worker,
+  },
+  {
+    title: "AI Powered SMS Marketing",
+    subtitle: "Reach more customers, close more jobs — automatically.",
+    desc: [
+      "Personalized follow-ups",
+      "Smart timing based on customer response",
+      "2x higher engagement than manual texting",
+      "Auto-reminders & promo blasts",
+    ],
+    illustration: sms_marketing,
+    bg: "#C2D6FF",
+    iconBg: "#3A63B5",
+    iconSrc: msg_icon,
+  },
+  {
+    title: "Quick Books",
+    subtitle: "Seamless Finances. Smarter Decisions.",
+    desc: [
+      "Real-time syncing of financial data",
+      "Automatic invoice and expense tracking",
+      "Reduce errors, save time, and simplify taxes",
+    ],
+    illustration: quickbook_img,
+    bg: "#CDFDD8",
+    iconBg: "#2CA01C",
+    iconSrc: quick_books,
+  },
+  {
+    title: "GMB Integration",
+    subtitle: "Boost your visibility — Gain more Customers.",
+    desc: [
+      "Improved local search rankings",
+      "Enhanced customer engagements",
+      "Increase website traffic",
+    ],
+    illustration: gmb_img,
+    bg: "#FFE8C2",
+    iconBg: "#FFD289",
+    iconSrc: gmb_icon,
+  },
+];
+const Features = ({ id }: { id?: string }) => {
 
-const Features = () => {
+  const headingHeight = 96; 
   return (
-    <>
-      <section id="features" className=" relative w-full flex flex-col items-center px-2 sm:px-4 lg:px-16">
-        <div className=" cards-heading w-full flex flex-col items-center  top-0 z-20 pt-[130px]">
-          <span className="mb-6 px-4 py-1 rounded-full bg-[#15B270] text-white text-sm font-semibold">
-            Ad on Features
-          </span>
-          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-semibold text-center max-w-[700px] mx-auto text-balance">
-            Get all the features in one place. Be amazed!
-          </h2>
-        </div>
-
-        <ul className=" cards-wrapper">
-          <li className="card card-1">
-            <div className="bg-[#FFDAFC] p-0 shadow-[0_4px_32px_0_rgba(0,0,0,0.10)] grid lg:grid-cols-2 grid-cols-1 mt-[128px] rounded-4xl ">
-              <div className="flex flex-col justify-between h-full pt-10 px-6 py-6 md:py-16 md:px-14">
+    <section
+      id="features"
+      className="relative w-full flex flex-col items-center px-2 sm:px-4 md:px-0"
+      style={{ minHeight: `calc(${features.length} * 520px)` }}
+    >
+      <div className="w-full flex flex-col items-center  top-0 z-20 pt-[130px]">
+        <span className="mb-6 px-4 py-1 rounded-full bg-[#15B270] text-white text-sm font-semibold">
+          Ad on Features
+        </span>
+        <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-semibold text-center max-w-[700px] mx-auto text-balance">
+          Get all the features in one place. Be amazed!
+        </h2>
+      </div>
+      <ul
+        className="cardsList"
+        style={{ "--numcards": features.length } as React.CSSProperties}
+      >
+        {features.map((feature, i) => (
+          <li
+            key={feature.title}
+            className="card"
+            style={
+              {
+                ["--index" as any]: features.length + i,
+                top: `${headingHeight + 32}px`,
+              } as React.CSSProperties
+            }
+            >
+            <div
+              className="cardContent"
+              style={{
+                background: feature.bg,
+                padding: 0,
+                boxShadow: "0 4px 32px 0 rgba(0,0,0,0.10)",
+              }}
+            >
+              <div
+                className="flex flex-col justify-between h-full pt-10 px-6 py-6 md:py-16 md:px-14"
+                style={{ minWidth: 0, flex: 1 }}
+              >
                 <div className="mb-8 flex flex-row items-start gap-4 md:flex-col md:gap-0">
-                  <div className="mb-0 md:mb-6 flex items-center justify-center w-16 h-16 rounded-xl flex-shrink-0 bg-[#EE3BDF]">
-                    <Image
-                      src={worker}
-                      alt="manage-worker"
-                      height={32}
-                      width={32}
-                      style={{ width: "auto", height: "auto" }}
-                    />
-                  </div>
-
+                  {feature.iconSrc && (
+                    <div
+                      className="mb-0 md:mb-6 flex items-center justify-center w-16 h-16 rounded-xl flex-shrink-0"
+                      style={{ background: feature.iconBg }}
+                    >
+                      <Image
+                        src={feature.iconSrc}
+                        alt={feature.title}
+                        width={32}
+                        height={32}
+                        className="object-contain"
+                      />
+                    </div>
+                  )}
                   <div className="flex-1 md:flex-none">
-                    <h2 className="mb-1 text-xl md:text-3xl font-semibold text-[#181F2A]">
-                      Manage Workers
-                    </h2>
-                    <h4 className="text-sm md:text-xl text-[#181F2A] opacity-80">
-                      Workforce Management Made Simple.
-                    </h4>
+                    <div className="mb-1 text-xl md:text-3xl font-semibold text-[#181F2A]">
+                      {feature.title}
+                    </div>
+                    <div className="text-sm md:text-xl text-[#181F2A] opacity-80">
+                      {feature.subtitle}
+                    </div>
                   </div>
                 </div>
-
                 <div>
                   <ul className="text-base md:text-lg text-[#181F2A] opacity-80 space-y-1 font-normal">
-                    <li>Assign and schedule orders instantly</li>
-                    <li>Monitor job progress in real-time</li>
-                    <li>View productivity insights and worker logs</li>
+                    {feature.desc.map((d, j) => (
+                      <li key={j}>{d}</li>
+                    ))}
                   </ul>
                 </div>
               </div>
-
-              <div className="flex items-center justify-center p-4 md:p-10">
+              <div
+                className="flex items-center justify-center p-4 md:p-10"
+                style={{ minWidth: 0 }}
+              >
                 <Image
-                  src={manage_worker}
-                  alt="manage-worker"
+                  src={feature.illustration}
+                  alt={feature.title}
+                  width={420}
+                  height={420}
                   className="object-contain md:!w-[420px] md:!h-[420px] md:!max-h-[420px]"
-                  style={{ width: "auto", height: "auto" }}
+                  style={{
+                    width: "280px",
+                    height: "280px",
+                    maxWidth: "100%",
+                    maxHeight: "280px",
+                  }}
                 />
               </div>
             </div>
           </li>
-
-          <li className="card card-2 ">
-            <div className="bg-[#C2D6FF] p-0 shadow-[0_4px_32px_0_rgba(0,0,0,0.10)] grid lg:grid-cols-2 grid-cols-1 rounded-4xl mt-4">
-              <div className="flex flex-col justify-between h-full pt-10 px-6 py-6 md:py-16 md:px-14">
-                <div className="mb-8 flex flex-row items-start gap-4 md:flex-col md:gap-0">
-                  <div className="mb-0 md:mb-6 flex items-center justify-center w-16 h-16 rounded-xl flex-shrink-0 bg-[#3A63B5]">
-                    <Image
-                      src={msg_icon}
-                      alt="manage-worker"
-                      height={32}
-                      width={32}
-                      style={{ width: "auto", height: "auto" }}
-                    />
-                  </div>
-
-                  <div className="flex-1 md:flex-none">
-                    <h2 className="mb-1 text-xl md:text-3xl font-semibold text-[#181F2A]">
-                      AI Powered SMS Marketing
-                    </h2>
-                    <h4 className="text-sm md:text-xl text-[#181F2A] opacity-80">
-                      Reach more customers, close more jobs — automatically.
-                    </h4>
-                  </div>
-                </div>
-
-                <div>
-                  <ul className="text-base md:text-lg text-[#181F2A] opacity-80 space-y-1 font-normal">
-                    <li>Personalized follow-ups</li>
-                    <li>Smart timing based on customer response</li>
-                    <li>2x higher engagement than manual texting</li>
-                    <li>Auto-reminders & promo blasts</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-center p-4 md:p-10">
-                <Image
-                  src={sms_marketing}
-                  alt="manage-worker"
-                  className="object-contain md:!w-[420px] md:!h-[420px] md:!max-h-[420px]"
-                  style={{ width: "auto", height: "auto" }}
-                />
-              </div>
-            </div>
-          </li>
-
-          <li className="card card-3 ">
-            <div className="mt-4 bg-[#CDFDD8] p-0 shadow-[0_4px_32px_0_rgba(0,0,0,0.10)] grid lg:grid-cols-2 grid-cols-1  rounded-4xl">
-              <div className="flex flex-col justify-between h-full pt-10 px-6 py-6 md:py-16 md:px-14">
-                <div className="mb-8 flex flex-row items-start gap-4 md:flex-col md:gap-0">
-                  <div className="mb-0 md:mb-6 flex items-center justify-center w-16 h-16 rounded-xl flex-shrink-0 bg-[#2CA01C]">
-                    <Image
-                      src={quick_books}
-                      alt="manage-worker"
-                      height={32}
-                      width={32}
-                      style={{ width: "auto", height: "auto" }}
-                    />
-                  </div>
-
-                  <div className="flex-1 md:flex-none">
-                    <h2 className="mb-1 text-xl md:text-3xl font-semibold text-[#181F2A]">
-                      Quick Books
-                    </h2>
-                    <h4 className="text-sm md:text-xl text-[#181F2A] opacity-80">
-                      Seamless Finances. Smarter Decisions.
-                    </h4>
-                  </div>
-                </div>
-
-                <div>
-                  <ul className="text-base md:text-lg text-[#181F2A] opacity-80 space-y-1 font-normal">
-                    <li>Real-time syncing of financial data</li>
-                    <li>Automatic invoice and expense tracking</li>
-                    <li>Reduce errors, save time, and simplify taxes</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-center p-4 md:p-10">
-                <Image
-                  src={quickbook_img}
-                  alt="manage-worker"
-                  className="object-contain md:!w-[420px] md:!h-[420px] md:!max-h-[420px]"
-                  style={{ width: "auto", height: "auto" }}
-                />
-              </div>
-            </div>
-          </li>
-
-          <li className="card card-4 ">
-            <div className="mt-4 bg-[#FFE8C2] p-0 shadow-[0_4px_32px_0_rgba(0,0,0,0.10)] grid lg:grid-cols-2 grid-cols-1  rounded-4xl">
-              <div className="flex flex-col justify-between h-full pt-10 px-6 py-6 md:py-16 md:px-14">
-                <div className="mb-8 flex flex-row items-start gap-4 md:flex-col md:gap-0">
-                  <div className="mb-0 md:mb-6 flex items-center justify-center w-16 h-16 rounded-xl flex-shrink-0 bg-[#FFD289]">
-                    <Image
-                      src={gmb_icon}
-                      alt="manage-worker"
-                      style={{ width: "auto", height: "auto" }}
-                    />
-                  </div>
-
-                  <div className="flex-1 md:flex-none">
-                    <h2 className="mb-1 text-xl md:text-3xl font-semibold text-[#181F2A]">
-                      GMB Integration
-                    </h2>
-                    <h4 className="text-sm md:text-xl text-[#181F2A] opacity-80">
-                      Boost your visibility — Gain more Customers.
-                    </h4>
-                  </div>
-                </div>
-
-                <div>
-                  <ul className="text-base md:text-lg text-[#181F2A] opacity-80 space-y-1 font-normal">
-                    <li>Improved local search rankings</li>
-                    <li>Enhanced customer engagements</li>
-                    <li>Increase website traffic</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-center p-4 md:p-10">
-                <Image
-                  src={gmb_img}
-                  alt="manage-worker"
-                  className="object-contain md:!w-[420px] md:!h-[420px] md:!max-h-[420px]"
-                  style={{ width: "auto", height: "auto" }}
-                />
-              </div>
-            </div>
-          </li>
-        </ul>
-
-        <Image
-          src={downarrow}
-          alt="downarrow"
-          className="mx-auto mb-4 h-40  sm:mt-0 select-none pointer-events-none "
-        />
-        <button className="inline-flex items-center bg-white text-blue-600 px-8 py-4 mb-[100px] rounded-full font-semibold text-lg shadow hover:bg-gray-100 transition mt-2 cursor-pointer">
-          Start your Business
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="ml-2"
-          >
-            <path d="M5 12h14"></path>
-            <path d="m12 5 7 7-7 7"></path>
-          </svg>
-        </button>
-      </section>
-    </>
+        ))}
+      </ul>
+      <Image
+        src={downarrow}
+        alt="Arrow"
+        width={160}
+        height={160}
+        className="mx-auto mb-4 h-40 mt-[100px] sm:mt-0 select-none pointer-events-none"
+      />
+      <button className="inline-flex items-center bg-white text-blue-600 px-8 py-4 mb-[100px] rounded-full font-semibold text-lg shadow hover:bg-gray-100 transition mt-2 cursor-pointer">
+        Start your Business
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="ml-2"
+        >
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </button>
+    </section>
   );
 };
 

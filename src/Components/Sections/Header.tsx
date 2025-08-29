@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import logo from "../Assets/Images/Logo.png";
+import { useRouter } from "next/navigation";
 
 const navItems: { label: string; id: string }[] = [
   { label: "Home", id: "home" },
@@ -17,6 +18,8 @@ const Header = () => {
       section.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+   const router = useRouter();
   return (
     <div
       className="lg:px-[40px] sticky lg:top-[30px] top-0 z-50 bg-[#0058FF] lg:bg-transparent 
@@ -43,7 +46,9 @@ const Header = () => {
         </nav>
 
         <div className="flex gap-4 font-MyFont">
-          <button className="lg:py-2 py-[6px] lg:px-6 px-[16px] lg:text-md text-[14px] border-2 border-[#0058FF] text-[#0058FF] rounded-full font-medium cursor-pointer">
+          <button
+            onClick={() => router.push("/login")}
+          className="lg:py-2 py-[6px] lg:px-6 px-[16px] lg:text-md text-[14px] border-2 border-[#0058FF] text-[#0058FF] rounded-full font-medium cursor-pointer">
             Login
           </button>
           <button className="lg:py-2 py-1.5 lg:px-6 px-[16px] lg:text-md text-[14px] bg-[#0058FF] hover:bg-blue-700 transition-colors rounded-full font-medium cursor-pointer text-white">
