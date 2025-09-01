@@ -8,6 +8,7 @@ import HeroSection from "@/Components/Sections/HeroSection";
 import MobileApp from "@/Components/Sections/MobileApp";
 import Pricing from "@/Components/Sections/Pricing";
 import Story from "@/Components/Sections/Story";
+import TextReveal from "@/Components/Sections/TextReveal";
 import VirtualSales from "@/Components/Sections/VirtualSales";
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
         <VirtualSales/>
         <Features/>
         <MobileApp/>
+         <TextReveal/>
         <Story/>
         <Pricing/>
         <Faq/>
