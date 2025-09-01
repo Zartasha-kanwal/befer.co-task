@@ -35,7 +35,7 @@ const Story = () => {
           ref={headingRef}
           className="text-white text-[1.775rem] sm:text-4xl md:text-5xl font-semibold text-center mb-12  mx-auto text-balance"
         >
-          Real stories from service pros who leveled up with Befer.
+          Real stories from service pros who<br></br> leveled up with Befer.
         </h2>
 
         <Storycard />
