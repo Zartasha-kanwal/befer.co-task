@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import logo from "../Assets/Images/Logo.png";
 import Google from "../Assets/Images/Google.svg";
 import US_flag from "../Assets/Images/united-states-flag-icon.png";
@@ -34,15 +34,73 @@ const carousel = [
 const Login = () => {
   const [activeTab, setActiveTab] = useState<"email" | "phone">("email");
   const [showPassword, setShowPassword] = useState(false);
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [phone, setPhone] = useState("");
   const router = useRouter();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [scrollHeight, setScrollHeight] = useState<number | undefined>(
+    undefined
+  );
+
+  useEffect(() => {
+    const updateHeight = () => {
+      if (containerRef.current && scrollRef.current) {
+        const container = containerRef.current;
+        const scrollable = scrollRef.current;
+
+        const containerHeight = container.clientHeight;
+        const scrollTopOffset = scrollable.offsetTop;
+        const footerHeight = 60;
+        const availableHeight =
+          containerHeight - scrollTopOffset - footerHeight;
+
+        setScrollHeight(availableHeight);
+      }
+    };
+
+    updateHeight();
+    window.addEventListener("resize", updateHeight);
+    return () => window.removeEventListener("resize", updateHeight);
+  }, []);
 
   const handleClick = () => {
     router.push("/#home"); // navigate to home
   };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value.replace(/\D/g, ""); 
+    if (value.length > 10) value = value.slice(0, 10); 
+    setPhone(value);
+  };
+
+  const handleSendVerification = () => {
+    console.log("Phone number submitted:", phone);
+    setPhone(""); // clear input
+  };
+
+  const handleSignIn = () => {
+    // Email validation
+    if (!email.includes("@")) {
+      setEmailError("Email must contain '@'");
+    } else {
+      setEmailError("");
+
+      // Clear
+      setEmail("");
+      setPassword("");
+    }
+  };
+
   return (
     <>
-      <section className="flex flex-row p-7 h-screen justify-center lg:justify-normal gap-[70px]">
-        <div className="relative bg-[#FFF] py-[24px] px-[28px] w-full rounded-3xl flex items-center justify-center ">
+      <section
+        ref={containerRef}
+        className="flex flex-row p-7 h-screen justify-center lg:justify-normal gap-[70px]"
+      >
+        <div className="relative bg-[#FFF] py-[24px] px-[28px] w-full rounded-3xl flex items-start justify-center overflow-hidden">
           <div className="pt-[40px] flex flex-col items-center justify-center max-w-[550px] w-full ">
             <div className="flex flex-row items-center justify-between pb-[8px]  w-full">
               <div
@@ -61,13 +119,18 @@ const Login = () => {
               <h2 className="mb-[4px] text-[30px] font-[700] text-start font-sans">
                 Sign In
               </h2>
+
               <span className="text-[#6B7280] font-[16px] font-sans">
                 Welcome back! Sign in to manage your services, orders, and
                 invoices.
               </span>
             </div>
 
-            <div className="w-full flex flex-col gap-[16px] mt-[12px] pr-[4px]  overflow-y-auto h-[300px]  ">
+            <div
+              ref={scrollRef}
+              className="w-full flex flex-col gap-[16px] mt-[12px] pr-[4px] overflow-y-auto"
+              style={{ maxHeight: scrollHeight }}
+            >
               <div className="mb-[20px] p-[4px] bg-[#0058FF] rounded-[30px] flex w-full">
                 <button
                   onClick={() => setActiveTab("email")}
@@ -94,7 +157,7 @@ const Login = () => {
               {activeTab === "email" ? (
                 <div className="flex flex-col gap-[16px] ">
                   {" "}
-                  <p className="text-[16px] text-[#1F1F1F] font-sans ">
+                  <p className="text-[14px] text-[#1F1F1F] font-sans ">
                     The fastest way to get up-and-running with Befer, our
                     self-service cloud dashboard allows you to easily create and
                     manage all your services, orders, and invoices.
@@ -103,23 +166,35 @@ const Login = () => {
                     <div className="pb-[8px]">
                       <label className="text-[14px] font-bold">Email</label>
                     </div>
-                    <div className="py-[4px] pl-[11px] pr-[40px] border border-[#e5e8eb] rounded-[6px]">
+                    <div className="py-[4px] pl-[11px] pr-[40px] border border-[#e5e8eb] rounded-[6px] h-[40px]">
                       <input
                         type="email"
                         placeholder="olivia@befer.com"
-                        className="text-[14px] placeholder:text-[#cbd1d7] text-ellipsis outline-none w-full "
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="text-[14px] placeholder:text-[#cbd1d7] text-ellipsis outline-none w-full"
                       />
                     </div>
+
+                    {emailError && (
+                      <p className="text-red-500 text-[12px] mt-[4px]">
+                        {emailError}
+                      </p>
+                    )}
 
                     <div className="pb-[8px]">
                       <label className="text-[14px] font-bold">Password</label>
                     </div>
 
-                    <div className="py-[4px] px-[11px] flex gap-2 items-center justify-between border border-[#e5e8eb] rounded-[6px]">
+                    <div className="py-[4px] px-[11px] flex gap-2 items-center justify-between border border-[#e5e8eb] rounded-[6px] h-[40px]">
                       <input
+                        placeholder="Enter Your password"
                         type={showPassword ? "text" : "password"}
-                        className="text-[14px] text-ellipsis outline-none w-full"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="text-[14px] text-ellipsis outline-none w-full placeholder:text-[#cbd1d7]"
                       />
+
                       <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
@@ -170,7 +245,7 @@ const Login = () => {
                     </h5>
 
                     <div className="flex flex-col gap-[20px]">
-                      <Button text="Sign in" />
+                      <Button text="Sign in" onClick={handleSignIn} />
                       <div className="flex items-center ">
                         <span className="flex-grow border-t border-gray-300"></span>
                         <span className="mx-4 text-black font-medium text-[12px] font-sans">
@@ -206,7 +281,7 @@ const Login = () => {
                       Phone Number
                     </label>
 
-                    <div className="flex gap-4 border border-[#e5e8eb] h-[40px]">
+                    <div className="flex gap-4 border border-[#e5e8eb] h-[40px] rounded-[6px]">
                       <div className="flex items-center justify-center px-[8px] border-r border-[#e5e8eb]">
                         <Image
                           src={US_flag}
@@ -217,12 +292,17 @@ const Login = () => {
                       <input
                         type="text"
                         placeholder="+1"
-                        className="outline-none w-full"
+                        value={phone}
+                        onChange={handlePhoneChange}
+                        className="outline-none w-full  rounded px-2 py-1"
                       />
                     </div>
 
                     <div className="mt-[32px]">
-                      <Button text="Send Verification Code" />
+                      <Button
+                        text="Send Verification Code"
+                        onClick={handleSendVerification}
+                      />
                     </div>
                   </div>
 
