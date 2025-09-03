@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import logo from "../Assets/Images/Logo.png";
 import Google from "../Assets/Images/Google.svg";
 import US_flag from "../Assets/Images/united-states-flag-icon.png";
@@ -37,7 +37,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState<string>("+1");
+  const [error, setError] = useState<string | null>(null);
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -70,10 +71,38 @@ const Login = () => {
     router.push("/#home"); // navigate to home
   };
 
-  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let value = e.target.value.replace(/\D/g, ""); 
-    if (value.length > 10) value = value.slice(0, 10); 
-    setPhone(value);
+  const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    let value = e.target.value;
+
+    if (!value.startsWith("+1")) {
+      value = "+1";
+    }
+
+    const digits = value
+      .slice(2)
+      .replace(/[^0-9]/g, "")
+      .slice(0, 10);
+
+    // Format the number
+    let formattedValue = "+1";
+    if (digits.length > 0) {
+      formattedValue += ` (${digits.slice(0, 3)}`;
+      if (digits.length > 3) {
+        formattedValue += `) ${digits.slice(3, 6)}`;
+      }
+      if (digits.length > 6) {
+        formattedValue += `-${digits.slice(6, 10)}`;
+      }
+    }
+
+    // error
+    if (digits.length > 0 && digits.length < 10) {
+      setError("US number must be 10 digits");
+    } else {
+      setError(null);
+    }
+
+    setPhone(formattedValue);
   };
 
   const handleSendVerification = () => {
@@ -166,7 +195,7 @@ const Login = () => {
                     <div className="pb-[8px]">
                       <label className="text-[14px] font-bold">Email</label>
                     </div>
-                    <div className="py-[4px] pl-[11px] pr-[40px] border border-[#e5e8eb] rounded-[6px] h-[40px]">
+                    <div className="flex items-center  pl-[11px] pr-[40px] border border-[#e5e8eb] rounded-[6px] h-[40px]">
                       <input
                         type="email"
                         placeholder="olivia@befer.com"
@@ -294,9 +323,13 @@ const Login = () => {
                         placeholder="+1"
                         value={phone}
                         onChange={handlePhoneChange}
-                        className="outline-none w-full  rounded px-2 py-1"
+                        className="outline-none w-full rounded px-2 py-1"
+                        maxLength={17}
                       />
                     </div>
+                    {error && (
+                      <p className="text-red-500 text-sm mt-1">{error}</p>
+                    )}
 
                     <div className="mt-[32px]">
                       <Button
