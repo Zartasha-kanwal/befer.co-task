@@ -78,35 +78,35 @@ const CreateAccount: React.FC<CreateAccountProps> = ({
         className="w-full flex flex-col gap-[16px] mt-[12px] pr-[4px] overflow-y-auto"
         style={{ maxHeight: scrollHeight }}
       >
-        <div className="flex gap-[16px] ">
-          <div className="flex flex-col">
+        <div className="flex gap-[16px] w-full  ">
+          <div className="flex flex-col w-full ">
             <h2 className="pb-[8px] text-[14px] font-sans font-[600]">
               First Name
             </h2>
-            <div className="flex items-center h-[40px] py-[4px] px-[11px] border border-[#e5e8eb] rounded-[6px]">
+            <div className="flex items-center h-[40px] py-[4px] px-[11px] border border-[#e5e8eb] rounded-[6px] w-full">
               <input
                 type="text"
                 placeholder="Olivia"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 autoComplete="off"
-                className="w-full h-full text-[14px] text-ellipsis outline-none placeholder:text-[#cbd1d7]"
+                className="w-full h-full text-[14px] text-ellipsis outline-none placeholder:text-[#cbd1d7] font-sans"
               />
             </div>
           </div>
 
-          <div className="flex flex-col">
+          <div className="flex flex-col w-full">
             <h2 className="pb-[8px] text-[14px] font-sans font-[600]">
               Last Name
             </h2>
-            <div className="flex items-center h-[40px] py-[4px] px-[11px] border border-[#e5e8eb] rounded-[6px]">
+            <div className="flex items-center h-[40px] py-[4px] px-[11px] border border-[#e5e8eb] rounded-[6px] w-full">
               <input
                 type="text"
                 placeholder="Rodrigo"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
                 autoComplete="off"
-                className="w-full h-full text-[14px] text-ellipsis outline-none placeholder:text-[#cbd1d7]"
+                className="w-full h-full text-[14px] text-ellipsis outline-none placeholder:text-[#cbd1d7] font-sans"
               />
             </div>
           </div>

@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Image, { StaticImageData } from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -87,34 +87,65 @@ const Storycard: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
 
-  useGSAP(() => {
-    if (!sectionRef.current || !trackRef.current) return;
+useEffect(() => {
+  const section = sectionRef.current;
+  const track = trackRef.current;
+  if (!section || !track) return;
 
-    const section = sectionRef.current;
-    const track = trackRef.current;
+  // GPU acceleration hint
+  track.style.willChange = "transform";
+  track.style.transform = "translateZ(0)";
 
-    const scrollAmount = Math.max(
-      0,
-      track.scrollWidth - window.innerWidth + 50
-    );
+  let tween: gsap.core.Tween | null = null;
 
-    if (scrollAmount > 0) {
-      gsap.to(track, {
-        x: -scrollAmount,
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: `+=${scrollAmount}`,
-          scrub: true,
-          pin: true,
-          pinSpacing: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      });
-    }
-  }, []);
+  const createTween = () => {
+    const scrollAmount = Math.max(0, track.scrollWidth - window.innerWidth + 50);
+    if (scrollAmount <= 0) return;
+
+    tween = gsap.to(track, {
+      x: -scrollAmount,           // pixel-based movement
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: () => `+=${scrollAmount}`, // compute fresh on refresh
+        scrub: 1,               // smooth scrub
+        pin: true,              // <--- pin the section so other sections don't jump under it
+        pinSpacing: true,       // keep space so layout doesn't collapse (set false if you want overlay)
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+      },
+    });
+  };
+
+  // Wait for any images inside the track to load before measuring (prevents layout-shift)
+  const imgs = Array.from(track.querySelectorAll("img"));
+  const imgPromises = imgs.map((img) =>
+    img.complete
+      ? Promise.resolve()
+      : new Promise<void>((res) => img.addEventListener("load", () => res(), { once: true }))
+  );
+
+  Promise.all(imgPromises)
+    .then(() => {
+      ScrollTrigger.refresh();
+      createTween();
+    })
+    .catch(() => {
+      // still initialize even if something goes wrong
+      ScrollTrigger.refresh();
+      createTween();
+    });
+
+  const onResize = () => ScrollTrigger.refresh();
+  window.addEventListener("resize", onResize);
+
+  return () => {
+    window.removeEventListener("resize", onResize);
+    if (tween) tween.kill();
+    ScrollTrigger.getAll().forEach((st) => st.kill());
+  };
+}, []); // run o
 
   return (
     <section
