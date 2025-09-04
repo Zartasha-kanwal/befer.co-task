@@ -15,10 +15,12 @@ const VirtualSales = () => {
   const boxesRef = useRef<HTMLDivElement>(null);
   const bottomTextRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const gridRef = useRef<SVGSVGElement | null>(null);
 
   useEffect(() => {
     if (!sectionRef.current) return;
 
+    // Scroll-based animation
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
@@ -26,65 +28,68 @@ const VirtualSales = () => {
       },
     });
 
-    // Image
     tl.from(imageRef.current, {
       x: -200,
       opacity: 0,
       duration: 1,
       ease: "power3.out",
-    });
+    })
+      .from(
+        h2Ref.current,
+        { y: 50, opacity: 0, duration: 1, ease: "power3.out" },
+        "-=0.5"
+      )
+      .from(
+        Array.from(boxesRef.current!.children) as HTMLElement[],
+        {
+          y: 50,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: "power3.out",
+        },
+        "-=0.5"
+      )
+      .from(
+        bottomTextRef.current,
+        { y: 30, opacity: 0, duration: 0.8, ease: "power3.out" },
+        "-=0.4"
+      )
+      .fromTo(
+        buttonRef.current,
+        { scale: 0.5, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)" },
+        "-=0.4"
+      );
 
-    // h2
-    tl.from(
-      h2Ref.current,
-      { y: 50, opacity: 0, duration: 1, ease: "power3.out" },
-      "-=0.5"
-    );
+    // Bg grid animation
+    if (gridRef.current) {
+      const path = gridRef.current.querySelector("path");
 
-    // Boxes
-    tl.from(
-      Array.from(boxesRef.current!.children) as HTMLElement[],
-      {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-      },
-      "-=0.5"
-    );
-
-    // Bottom text
-    tl.from(
-      bottomTextRef.current,
-      { y: 30, opacity: 0, duration: 0.8, ease: "power3.out" },
-      "-=0.4"
-    );
-
-    // Button animation
-    tl.fromTo(
-      buttonRef.current,
-      { scale: 0.5, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)" },
-      "-=0.4"
-    );
+      if (path) {
+        gsap.to(path, {
+          attr: {
+            d: "M 30 0 Q 15 15 0 30",
+          },
+          duration: 3,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
+      }
+    }
   }, []);
+
   return (
     <>
-      <section id="howitworks"
+      <section
+        id="howitworks"
         ref={sectionRef}
         className="relative w-full flex justify-center items-center py-12 sm:py-16 md:py-[100px] px-4 mt-0 md:mt-0 sm:px-6 md:px-8 lg:px-12 bg-[#1D293C] overflow-hidden rounded-3xl shadow-2xl mx-auto"
       >
-        <div
-          className="absolute left-0 top-0 w-full h-[80%] z-0 pointer-events-none"
-          style={{
-            maskImage:
-              "linear-gradient(to bottom, black 70%, transparent 100%)",
-            WebkitMaskImage:
-              "linear-gradient(to bottom, black 70%, transparent 100%)",
-          }}
-        >
+        <div className="absolute left-0 top-0 w-full h-[100%] z-0 pointer-events-none">
           <svg
+            ref={gridRef}
             width="100%"
             height="100%"
             className="w-full h-full"
@@ -93,19 +98,35 @@ const VirtualSales = () => {
             <defs>
               <pattern
                 id="grid"
-                width="40"
-                height="40"
+                width="30"
+                height="30"
                 patternUnits="userSpaceOnUse"
               >
                 <path
-                  d="M 40 0 L 0 0 0 40"
+                  d="M 30 0 L 0 0 0 30"
                   fill="none"
-                  stroke="#fff"
-                  strokeWidth="0.5"
+                  stroke="#ffffff"
+                  strokeWidth="0.6"
                 />
               </pattern>
+
+              <filter id="wave">
+                <feTurbulence
+                  type="fractalNoise"
+                  baseFrequency="0.02 0.05"
+                  numOctaves="2"
+                  result="turb"
+                />
+                <feDisplacementMap in="SourceGraphic" in2="turb" scale="10" />
+              </filter>
             </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
+
+            <rect
+              width="100%"
+              height="100%"
+              fill="url(#grid)"
+              filter="url(#wave)"
+            />
           </svg>
         </div>
 
@@ -119,7 +140,7 @@ const VirtualSales = () => {
                 src={ai_women}
                 alt="Ai-women"
                 className="w-[100%] h-[100%] object-cover object-center"
-                style={{width:"auto", height:"auto" }}
+                style={{ width: "auto", height: "auto" }}
               />
               <div className=" z-10 flex gap-2 p-0 pb-6 justify-center w-full absolute bottom-0 left-0">
                 <span className="bg-[#F7FFD2] text-gray-900 text-xs font-semibold rounded-full px-3 py-1 shadow border border-green-200">
