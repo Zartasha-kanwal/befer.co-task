@@ -3,10 +3,10 @@ import React, { useEffect, useRef } from "react";
 import Image, { StaticImageData } from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import amanda from "../Assets/Images/Profile Pic (1).png";
 
 gsap.registerPlugin(ScrollTrigger);
+
 
 type Testimonial = {
   quote: string;
@@ -16,7 +16,10 @@ type Testimonial = {
   alt: string;
 };
 
+
+
 const testimonials: Testimonial[] = [
+
   {
     quote:
       "Befer completely transformed my business operations. I went from spending hours on paperwork to having everything automated. My revenue increased by 40% in just 3 months!",
@@ -150,6 +153,8 @@ const Storycard: React.FC = () => {
       ScrollTrigger.getAll().forEach((st) => st.kill());
     };
   }, []);
+
+
   return (
     <section
       ref={sectionRef}

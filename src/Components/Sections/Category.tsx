@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import Image from "next/image";
+import Link from "next/link";
 import downarrow from "../Assets/Images/downarrow.png";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -13,6 +14,7 @@ interface ServiceItem {
   label: string;
   bg: string;
   iconBg: string;
+    href?: string;
 }
 
 const services: ServiceItem[] = [
@@ -32,6 +34,7 @@ const services: ServiceItem[] = [
     label: "Home Cleaners",
     bg: "bg-pink-100",
     iconBg: "bg-pink-200/70",
+     href: "/cleaners",
   },
   {
     icon: (
@@ -51,6 +54,7 @@ const services: ServiceItem[] = [
     label: "Car Detailers",
     bg: "bg-yellow-100",
     iconBg: "bg-yellow-200/70",
+     href: "/car-detailers", 
   },
   {
     icon: (
@@ -89,6 +93,7 @@ const services: ServiceItem[] = [
     label: "Plumbers",
     bg: "bg-green-100",
     iconBg: "bg-green-200/70",
+      href: "/Plumbers", 
   },
   {
     icon: (
@@ -178,20 +183,46 @@ const Category = () => {
       </h2>
       <div className="grid  max-sm:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 pb-[64px]  mx-auto lg:[&>*:nth-last-child(2):nth-child(odd)]:col-start-2">
         {services.map((service) => (
-          <div
-            key={service.label}
-            className={`${service.bg} w-[220px] lg:w-[245px] h-[240px] lg:h-[270px] rounded-2xl border-4 border-[#3C5070] flex flex-col items-center justify-center p-8  shadow-lg transition-transform duration-200 hover:border-blue-400 hover:scale-105 hover:shadow-2xl cursor-pointer card-gradient-home`}
-          >
-            <div
-              className={`mb-3 w-16 h-16 flex items-center p-4 justify-center rounded-xl ${service.iconBg}`}
-            >
-              {service.icon}
-            </div>
-            <span className="text-base font-semibold text-gray-800 text-center">
-              {service.label}
-            </span>
-          </div>
-        ))}
+  service.href ? (
+    <Link href={service.href} key={service.label}>
+      <div
+        className={`${service.bg} w-[220px] lg:w-[245px] h-[240px] lg:h-[270px] 
+        rounded-2xl border-4 border-[#3C5070] flex flex-col items-center 
+        justify-center p-8 shadow-lg transition-transform duration-200 
+        hover:border-blue-400 hover:scale-105 hover:shadow-2xl cursor-pointer 
+        card-gradient-home`}
+      >
+        <div
+          className={`mb-3 w-16 h-16 flex items-center p-4 justify-center rounded-xl ${service.iconBg}`}
+        >
+          {service.icon}
+        </div>
+        <span className="text-base font-semibold text-gray-800 text-center">
+          {service.label}
+        </span>
+      </div>
+    </Link>
+  ) : (
+    <div
+      key={service.label}
+      className={`${service.bg} w-[220px] lg:w-[245px] h-[240px] lg:h-[270px] 
+      rounded-2xl border-4 border-[#3C5070] flex flex-col items-center 
+      justify-center p-8 shadow-lg transition-transform duration-200 
+      hover:border-blue-400 hover:scale-105 hover:shadow-2xl cursor-pointer 
+      card-gradient-home`}
+    >
+      <div
+        className={`mb-3 w-16 h-16 flex items-center p-4 justify-center rounded-xl ${service.iconBg}`}
+      >
+        {service.icon}
+      </div>
+      <span className="text-base font-semibold text-gray-800 text-center">
+        {service.label}
+      </span>
+    </div>
+  )
+))}
+
       </div>
       <div ref={arrowWrapperRef}>
         <Image
