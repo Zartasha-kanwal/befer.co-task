@@ -9,6 +9,7 @@ import {
   Car,
   Wrench,
   FileText,
+  Clock,
 } from "lucide-react";
 import Header from "@/Components/Sections/Header";
 import Footer from "@/Components/Sections/Footer";
@@ -23,7 +24,7 @@ const Button: React.FC<{
   children: React.ReactNode;
   onClick?: () => void;
   className?: string;
- }> = ({ children, onClick, className }) => {
+}> = ({ children, onClick, className }) => {
   return (
     <button
       onClick={onClick}
@@ -181,57 +182,217 @@ const CarDetailers = () => {
         {/* Hero Section */}
         <section
           ref={autoRef}
-          className="hero-section text-white py-20 lg:py-32"
+          className="relative min-h-screen  text-white overflow-hidden"
         >
-          <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center overflow-hidden">
-            {/* LEFT SIDE */}
-            <div className="space-y-8 hero-left opacity-0 text-white">
-              <div className="flex items-center space-x-2">
-                <Car className="h-6 w-6 " />
-                <span className=" font-semibold">
-                  For Auto Detailing Services
-                </span>
-              </div>
-              <h2 className="text-5xl font-bold leading-tight">
-                Drive Your{" "}
-                <span className=" block">
-                  Detailing Business
-                </span>{" "}
-                to Success
-              </h2>
-              <p className="text-lg text-white/80">
-                Manage bookings, showcase your work, and grow your auto
-                detailing business with the CRM designed for car care
-                professionals.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="btn-gradient text-white text-lg px-8">
-                  Start 14-Day Free Trial
-                </Button>
-                <Button className=" text-white hover:bg-white hover:text-primary text-lg px-8">
-                  Watch Demo
-                </Button>
-              </div>
-            </div>
+          {/* Background Elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/5 to-blue-500/5 rounded-full blur-3xl"></div>
+          </div>
 
-            {/* RIGHT SIDE */}
-            <div className="hero-right bg-white rounded-2xl shadow-lg p-8 text-gray-900 opacity-0">
-              <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Car className="h-8 w-8 text-yellow-500" />
+          <div className="relative z-10 container mx-auto px-6 py-20 lg:py-32">
+            <div className="grid lg:grid-cols-12 gap-12 items-center min-h-[80vh]">
+              {/* LEFT SIDE */}
+              <div className="lg:col-span-7 space-y-8">
+                {/* Badge */}
+                <div className="inline-flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
+                  <div className="flex items-center justify-center w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full">
+                    <Car className="h-4 w-4 text-white" />
+                  </div>
+                  <span className="font-semibold text-sm">
+                    Premium Auto Detailing CRM
+                  </span>
+                </div>
+
+                {/* Main Heading */}
+                <div className="space-y-6">
+                  <h1 className="text-6xl lg:text-7xl font-bold leading-none tracking-tight ">
+                    Transform Your
+                    <span className="block bg-gradient-to-r from-purple-400  to-blue-400   bg-clip-text text-transparent">
+                      Detailing Empire
+                    </span>
+                  </h1>
+                  <p className="text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-2xl">
+                    The complete business management platform designed
+                    exclusively for auto detailing professionals who demand
+                    excellence.
+                  </p>
+                </div>
+
+                {/* Key Benefits */}
+                <div className="grid sm:grid-cols-3 gap-4">
+                  {[
+                    { icon: Calendar, text: "Smart Scheduling" },
+                    { icon: Star, text: "Customer Reviews" },
+                    { icon: CheckCircle, text: "Payment Processing" },
+                  ].map((benefit, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center space-x-3 bg-white/5 backdrop-blur-sm rounded-lg px-4 py-3 border border-white/10"
+                    >
+                      <benefit.icon className="h-5 w-5 text-purple-400" />
+                      <span className="text-sm font-medium">
+                        {benefit.text}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                  <button className="group relative overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#2563eb] hover:from-[#2563eb] hover:to-[#0f172a] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl cursor-pointer">
+                    <span className="relative z-10 flex items-center justify-center space-x-2">
+                      <span>Start Free Trial</span>
+                      <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </button>
+                  <button className="group border-2 border-white/30 hover:border-white/50 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-xl transition-all duration-300 backdrop-blur-sm cursor-pointer">
+                    <span className="flex items-center justify-center space-x-2">
+                      <span>Watch Demo</span>
+                      <div className="w-0 h-0 border-l-4 border-l-white border-y-2 border-y-transparent ml-1 group-hover:ml-2 transition-all duration-300"></div>
+                    </span>
+                  </button>
+                </div>
+
+                {/* Social Proof */}
+                <div className="flex items-center space-x-8 pt-8">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-white">2,500+</div>
+                    <div className="text-sm text-gray-400">
+                      Happy Businesses
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-white">98%</div>
+                    <div className="text-sm text-gray-400">
+                      Satisfaction Rate
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-white">$2M+</div>
+                    <div className="text-sm text-gray-400">
+                      Revenue Processed
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-center">
-                Premium Detail
-              </h3>
-              <p className="text-center text-gray-600 mb-4">
-                2023 BMW X5 - Full interior & exterior
-              </p>
-              <div className="flex justify-between text-sm text-gray-700 mb-6">
-                <span>Duration: 4 hours</span>
-                <span className="font-semibold text-green-600">$299</span>
+
+              {/* RIGHT SIDE - Interactive Dashboard Preview */}
+              <div className="lg:col-span-5 space-y-6">
+                {/* Main Dashboard Card */}
+                <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 text-gray-900 transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center">
+                        <Car className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-lg">Today's Schedule</h3>
+                        <p className="text-gray-500 text-sm">March 15, 2025</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-2xl font-bold text-green-600">
+                        $1,247
+                      </div>
+                      <div className="text-xs text-gray-500">Daily Revenue</div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    {[
+                      {
+                        time: "9:00 AM",
+                        service: "Premium Detail",
+                        customer: "Sarah Johnson",
+                        price: "$299",
+                        status: "In Progress",
+                      },
+                      {
+                        time: "1:00 PM",
+                        service: "Interior Clean",
+                        customer: "Mike Chen",
+                        price: "$149",
+                        status: "Scheduled",
+                      },
+                      {
+                        time: "3:30 PM",
+                        service: "Paint Correction",
+                        customer: "Alex Rivera",
+                        price: "$799",
+                        status: "Scheduled",
+                      },
+                    ].map((appointment, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-200"
+                      >
+                        <div className="flex items-center space-x-4">
+                          <div className="w-3 h-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"></div>
+                          <div>
+                            <div className="font-semibold text-sm">
+                              {appointment.service}
+                            </div>
+                            <div className="text-xs text-gray-500">
+                              {appointment.customer} • {appointment.time}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <div className="font-bold text-green-600">
+                            {appointment.price}
+                          </div>
+                          <div
+                            className={`text-xs px-2 py-1 rounded-full ${
+                              appointment.status === "In Progress"
+                                ? "bg-yellow-100 text-yellow-800"
+                                : "bg-blue-100 text-blue-800"
+                            }`}
+                          >
+                            {appointment.status}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Secondary Cards */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 text-gray-900 transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <div className="flex items-center space-x-3 mb-3">
+                      <Clock className="h-5 w-5 text-purple-500" />
+                      <span className="font-semibold text-sm">
+                        Avg. Service Time
+                      </span>
+                    </div>
+                    <div className="text-2xl font-bold text-gray-900">2.5h</div>
+                    <div className="text-xs text-green-600 font-medium">
+                      ↗ 15% faster
+                    </div>
+                  </div>
+
+                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 text-gray-900 transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                    <div className="flex items-center space-x-3 mb-3">
+                      <Star className="h-5 w-5 text-yellow-500" />
+                      <span className="font-semibold text-sm">
+                        Customer Rating
+                      </span>
+                    </div>
+                    <div className="text-2xl font-bold text-gray-900">4.9</div>
+                    <div className="flex space-x-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="h-3 w-3 fill-yellow-400 text-yellow-400"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
-              <Button className="btn-gradient text-white w-full">
-                View Details
-              </Button>
             </div>
           </div>
         </section>
