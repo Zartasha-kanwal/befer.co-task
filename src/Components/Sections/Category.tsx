@@ -14,7 +14,7 @@ interface ServiceItem {
   label: string;
   bg: string;
   iconBg: string;
-    href?: string;
+  href?: string;
 }
 
 const services: ServiceItem[] = [
@@ -34,7 +34,7 @@ const services: ServiceItem[] = [
     label: "Home Cleaners",
     bg: "bg-pink-100",
     iconBg: "bg-pink-200/70",
-     href: "/cleaners",
+    href: "/cleaners",
   },
   {
     icon: (
@@ -54,7 +54,7 @@ const services: ServiceItem[] = [
     label: "Car Detailers",
     bg: "bg-yellow-100",
     iconBg: "bg-yellow-200/70",
-     href: "/car-detailers", 
+    href: "/car-detailers",
   },
   {
     icon: (
@@ -93,7 +93,7 @@ const services: ServiceItem[] = [
     label: "Plumbers",
     bg: "bg-green-100",
     iconBg: "bg-green-200/70",
-      href: "/Plumbers", 
+    href: "/Plumbers",
   },
   {
     icon: (
@@ -113,6 +113,7 @@ const services: ServiceItem[] = [
     label: "Electricians",
     bg: "bg-purple-200",
     iconBg: "bg-purple-100/80",
+     href: "/electricians",
   },
   {
     icon: (
@@ -171,7 +172,10 @@ const Category = () => {
   }, []);
 
   return (
-    <section id="whoisitfor" className="relative py-24 sm:py-24 flex flex-col items-center">
+    <section
+      id="whoisitfor"
+      className="relative py-24 sm:py-24 flex flex-col items-center"
+    >
       <span className="mb-6 px-4 py-1 rounded-full bg-[#15B270] text-white text-sm font-semibold">
         Who is it for?
       </span>
@@ -182,47 +186,46 @@ const Category = () => {
         Trusted by professionals across all major service categories.
       </h2>
       <div className="grid  max-sm:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 pb-[64px]  mx-auto lg:[&>*:nth-last-child(2):nth-child(odd)]:col-start-2">
-        {services.map((service) => (
-  service.href ? (
-    <Link href={service.href} key={service.label}>
-      <div
-        className={`${service.bg} w-[220px] lg:w-[245px] h-[240px] lg:h-[270px] 
+        {services.map((service) =>
+          service.href ? (
+            <Link href={service.href} key={service.label}>
+              <div
+                className={`${service.bg} w-[220px] lg:w-[245px] h-[240px] lg:h-[270px] 
         rounded-2xl border-4 border-[#3C5070] flex flex-col items-center 
         justify-center p-8 shadow-lg transition-transform duration-200 
         hover:border-blue-400 hover:scale-105 hover:shadow-2xl cursor-pointer 
         card-gradient-home`}
-      >
-        <div
-          className={`mb-3 w-16 h-16 flex items-center p-4 justify-center rounded-xl ${service.iconBg}`}
-        >
-          {service.icon}
-        </div>
-        <span className="text-base font-semibold text-gray-800 text-center">
-          {service.label}
-        </span>
-      </div>
-    </Link>
-  ) : (
-    <div
-      key={service.label}
-      className={`${service.bg} w-[220px] lg:w-[245px] h-[240px] lg:h-[270px] 
+              >
+                <div
+                  className={`mb-3 w-16 h-16 flex items-center p-4 justify-center rounded-xl ${service.iconBg}`}
+                >
+                  {service.icon}
+                </div>
+                <span className="text-base font-semibold text-gray-800 text-center">
+                  {service.label}
+                </span>
+              </div>
+            </Link>
+          ) : (
+            <div
+              key={service.label}
+              className={`${service.bg} w-[220px] lg:w-[245px] h-[240px] lg:h-[270px] 
       rounded-2xl border-4 border-[#3C5070] flex flex-col items-center 
       justify-center p-8 shadow-lg transition-transform duration-200 
       hover:border-blue-400 hover:scale-105 hover:shadow-2xl cursor-pointer 
       card-gradient-home`}
-    >
-      <div
-        className={`mb-3 w-16 h-16 flex items-center p-4 justify-center rounded-xl ${service.iconBg}`}
-      >
-        {service.icon}
-      </div>
-      <span className="text-base font-semibold text-gray-800 text-center">
-        {service.label}
-      </span>
-    </div>
-  )
-))}
-
+            >
+              <div
+                className={`mb-3 w-16 h-16 flex items-center p-4 justify-center rounded-xl ${service.iconBg}`}
+              >
+                {service.icon}
+              </div>
+              <span className="text-base font-semibold text-gray-800 text-center">
+                {service.label}
+              </span>
+            </div>
+          )
+        )}
       </div>
       <div ref={arrowWrapperRef}>
         <Image

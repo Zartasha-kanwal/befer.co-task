@@ -19,6 +19,23 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const Button: React.FC<{
+  children: React.ReactNode;
+  onClick?: () => void;
+  className?: string;
+ }> = ({ children, onClick, className }) => {
+  return (
+    <button
+      onClick={onClick}
+      className={`w-full p-[10px] text-[14px] font-[600] font-sans bg-[#0058ff] text-white
+        hover:bg-white hover:text-[#0058ff] transition-colors rounded-[99px] cursor-pointer
+        border border-[#0058ff] ${className || ""}`}
+    >
+      {children}
+    </button>
+  );
+};
+
 const CarDetailers = () => {
   const autoRef = useRef<HTMLElement | null>(null);
 
@@ -168,16 +185,16 @@ const CarDetailers = () => {
         >
           <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center overflow-hidden">
             {/* LEFT SIDE */}
-            <div className="space-y-8 hero-left opacity-0">
+            <div className="space-y-8 hero-left opacity-0 text-white">
               <div className="flex items-center space-x-2">
-                <Car className="h-6 w-6 text-yellow-400" />
-                <span className="text-yellow-400 font-semibold">
+                <Car className="h-6 w-6 " />
+                <span className=" font-semibold">
                   For Auto Detailing Services
                 </span>
               </div>
               <h2 className="text-5xl font-bold leading-tight">
                 Drive Your{" "}
-                <span className="text-yellow-400 block">
+                <span className=" block">
                   Detailing Business
                 </span>{" "}
                 to Success
@@ -188,12 +205,12 @@ const CarDetailers = () => {
                 professionals.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-yellow-500 hover:bg-yellow-600 px-6 py-3 rounded-lg font-semibold cursor-pointer">
+                <Button className="btn-gradient text-white text-lg px-8">
                   Start 14-Day Free Trial
-                </button>
-                <button className="border border-white px-6 py-3 rounded-lg hover:bg-white hover:text-gray-900 font-semibold cursor-pointer">
+                </Button>
+                <Button className=" text-white hover:bg-white hover:text-primary text-lg px-8">
                   Watch Demo
-                </button>
+                </Button>
               </div>
             </div>
 
@@ -212,9 +229,9 @@ const CarDetailers = () => {
                 <span>Duration: 4 hours</span>
                 <span className="font-semibold text-green-600">$299</span>
               </div>
-              <button className="bg-yellow-500 w-full py-3 rounded-lg text-white font-semibold hover:bg-yellow-600 cursor-pointer">
+              <Button className="btn-gradient text-white w-full">
                 View Details
-              </button>
+              </Button>
             </div>
           </div>
         </section>
@@ -289,7 +306,7 @@ const CarDetailers = () => {
                   <span>{benefit}</span>
                 </div>
               ))}
-              <button className="bg-yellow-500 hover:bg-yellow-600 px-6 py-3 rounded-lg font-semibold text-white">
+              <button className="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-lg font-semibold text-white cursor-pointer transition-colors duration-200">
                 Start Growing Today
               </button>
             </div>
