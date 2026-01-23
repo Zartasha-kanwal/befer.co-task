@@ -1,8 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  reactDevOverlay: false,
+  // Add any valid Next.js config options here
+  // e.g., output: 'standalone', images, etc.
 };
 
 export default nextConfig;
+

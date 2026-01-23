@@ -74,6 +74,7 @@ const services: ServiceItem[] = [
     label: "Pool Cleaners",
     bg: "bg-blue-100",
     iconBg: "bg-blue-200/70",
+     href: "/pool-cleaners",
   },
   {
     icon: (
@@ -191,11 +192,11 @@ const Category = () => {
             <Link href={service.href} key={service.label}>
               <div
                 className={`${service.bg} w-[220px] lg:w-[245px] h-[240px] lg:h-[270px] 
-        rounded-2xl border-4 border-[#3C5070] flex flex-col items-center 
-        justify-center p-8 shadow-lg transition-transform duration-200 
-        hover:border-blue-400 hover:scale-105 hover:shadow-2xl cursor-pointer 
-        card-gradient-home`}
-              >
+                 rounded-2xl border-4 border-[#3C5070] flex flex-col items-center 
+                 justify-center p-8 shadow-lg transition-transform duration-200 
+                  hover:border-blue-400 hover:scale-105 hover:shadow-2xl cursor-pointer 
+                   card-gradient-home`}
+                >
                 <div
                   className={`mb-3 w-16 h-16 flex items-center p-4 justify-center rounded-xl ${service.iconBg}`}
                 >
@@ -210,11 +211,11 @@ const Category = () => {
             <div
               key={service.label}
               className={`${service.bg} w-[220px] lg:w-[245px] h-[240px] lg:h-[270px] 
-      rounded-2xl border-4 border-[#3C5070] flex flex-col items-center 
-      justify-center p-8 shadow-lg transition-transform duration-200 
-      hover:border-blue-400 hover:scale-105 hover:shadow-2xl cursor-pointer 
-      card-gradient-home`}
-            >
+              rounded-2xl border-4 border-[#3C5070] flex flex-col items-center 
+              justify-center p-8 shadow-lg transition-transform duration-200 
+              hover:border-blue-400 hover:scale-105 hover:shadow-2xl cursor-pointer 
+              card-gradient-home`}
+               >
               <div
                 className={`mb-3 w-16 h-16 flex items-center p-4 justify-center rounded-xl ${service.iconBg}`}
               >

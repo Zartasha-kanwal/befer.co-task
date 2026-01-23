@@ -8,7 +8,6 @@ import {
   CheckCircle,
   Star,
   Home,
-  Sparkles,
   MapPin,
 } from "lucide-react";
 import Header from "@/Components/Sections/Header";
@@ -203,77 +202,132 @@ const Cleaners = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background lg:mx-4">
+    <div className="min-h-screen bg-background ">
       <Header />
 
       {/* Hero Section */}
-      <section
-        ref={sectionRef}
-        className="hero-section text-white py-20 lg:py-32  bg-[#111927] overflow-hidden"
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8 hero-left opacity-0">
-              <div className="flex items-center space-x-2 mb-4">
-                <Home className="h-6 w-6 text-accent" />
-                <span className="text-accent font-semibold">
-                  For Home Cleaning Services
-                </span>
+      <section className="relative  text-white overflow-hidden">
+        {/* Background Abstract Shape */}
+        <div className="absolute inset-0">
+          <svg
+            className="absolute  top-0 "
+            width="1200"
+            height="1200"
+            viewBox="0 0 1200 1200"
+            fill="none"
+          >
+            <path
+              d="M0 400C200 200 600 100 800 300C1000 500 800 800 600 1000C400 1200 0 1000 0 800V400Z"
+              fill="#2C3E50"
+              opacity="0.3"
+            />
+          </svg>
+        </div>
+
+        <div className="relative container mx-auto px-6 lg:px-12 py-24 lg:py-32 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Left Side */}
+          <div className=" space-y-8">
+            {/* Badge */}
+            <div className="inline-flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
+              <div className="flex items-center justify-center w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full">
+                <Home className="h-4 w-4 text-white" />
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Grow Your
-                <span className="text-accent block">Cleaning Business</span>
-                with Befer CRM
-              </h1>
-              <p className="text-xl text-white/90 leading-relaxed">
-                Streamline operations, increase bookings, and deliver
-                exceptional service with the CRM built specifically for
-                professional house cleaners.
-              </p>
-              <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <Button className="btn-gradient text-white text-lg px-8">
-                  Start 14-Day Free Trial
-                </Button>
-                <Button className=" text-white hover:bg-white hover:text-primary text-lg px-8">
-                  Watch Demo
-                </Button>
-              </div>
-              <div className="flex items-center space-x-6 text-sm text-white/80">
-                <span className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-accent" />
-                  <span>No credit card required</span>
-                </span>
-                <span className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-accent" />
-                  <span>Setup in 5 minutes</span>
-                </span>
-              </div>
+              <span className="font-semibold text-sm">
+                Premium Auto Detailing CRM
+              </span>
             </div>
 
-            <div className="hero-right relative opacity-0">
-              <div className="bg-pink-100 p-8 rounded-3xl service-card">
-                <div className="text-center space-y-4">
-                  <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto">
-                    <Sparkles className="h-8 w-8 text-pink-500" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-800">
-                    Premium Cleaning
-                  </h3>
-                  <p className="text-gray-600">
-                    Deep clean scheduled for tomorrow at 2:00 PM
-                  </p>
-                  <Button className="btn-gradient text-white w-full">
-                    View Details
-                  </Button>
-                </div>
+            {/* Main Heading */}
+            <div className="space-y-6">
+              <h1 className="text-6xl lg:text-7xl font-bold leading-none tracking-tight ">
+                Transform Your
+                <span className="block bg-gradient-to-r from-purple-400  to-blue-400   bg-clip-text text-transparent">
+                  Detailing Empire
+                </span>
+              </h1>
+              <p className="text-xl  text-gray-300 leading-relaxed max-w-2xl">
+                The complete business management platform designed exclusively
+                for auto detailing professionals who demand excellence.
+              </p>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <button className="group relative overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#2563eb] hover:from-[#2563eb] hover:to-[#0f172a] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl cursor-pointer">
+                <span className="relative z-10 flex items-center justify-center space-x-2">
+                  <span>Start Free Trial</span>
+                  <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </button>
+              <button className="group border-2 border-white/30 hover:border-white/50 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-xl transition-all duration-300 backdrop-blur-sm cursor-pointer">
+                <span className="flex items-center justify-center space-x-2">
+                  <span>Watch Demo</span>
+                  <div className="w-0 h-0 border-l-4 border-l-white border-y-2 border-y-transparent ml-1 group-hover:ml-2 transition-all duration-300"></div>
+                </span>
+              </button>
+            </div>
+
+            {/* Social Proof */}
+            <div className="flex items-center space-x-8 pt-8">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white">2,500+</div>
+                <div className="text-sm text-gray-400">Happy Businesses</div>
               </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white">98%</div>
+                <div className="text-sm text-gray-400">Satisfaction Rate</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white">$2M+</div>
+                <div className="text-sm text-gray-400">Revenue Processed</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side */}
+          <div className="relative  bg-[#1D293C] p-10 rounded-2xl shadow-xl">
+            <div className="absolute inset-0 opacity-[0.08] pointer-events-none">
+              <svg width="100%" height="100%" className="w-full h-full">
+                <defs>
+                  <pattern
+                    id="grid"
+                    width="40"
+                    height="40"
+                    patternUnits="userSpaceOnUse"
+                  >
+                    <path
+                      d="M 40 0 L 0 0 0 40"
+                      fill="none"
+                      stroke="#fff"
+                      strokeWidth="0.5"
+                    ></path>
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)"></rect>
+              </svg>
+            </div>
+            <div className="max-w-lg">
+              <span className="uppercase text-sm  tracking-wide text-gray-200">
+                Premium Auto Detailing CRM
+              </span>
+              <h2 className="mt-4 text-2xl md:text-4xl font-bold leading-snug">
+                Crafting <br /> Spaces That <br /> Inspire
+              </h2>
+              <p className="mt-4 text-gray-200 leading-relaxed">
+                Empowering home cleaners with smarter scheduling, easy client
+                tracking, and tools that turn busy days into smooth success.
+              </p>
+              <Button className="mt-6 bg-[#0A1A2F] text-white px-6 py-3 rounded-full">
+                Start free trial
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 ">
+      <section className="py-20 mx-4">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Intro */}
@@ -339,7 +393,7 @@ const Cleaners = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="relative py-20 bg-[#1D293C] rounded-3xl">
+      <section className="relative py-20 bg-[#1D293C] rounded-3xl mx-4">
         <div className="absolute inset-0 opacity-[0.08] pointer-events-none">
           <svg width="100%" height="100%" className="w-full h-full">
             <defs>
@@ -360,7 +414,7 @@ const Cleaners = () => {
             <rect width="100%" height="100%" fill="url(#grid)"></rect>
           </svg>
         </div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 rounded-3xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8 text-white">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground ">
@@ -419,7 +473,7 @@ const Cleaners = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="hero-section text-white py-20 ">
+      <section className="hero-section text-white py-20 mx-4">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto space-y-8">
             <h2 className="text-3xl md:text-4xl font-bold">
@@ -444,7 +498,10 @@ const Cleaners = () => {
         </div>
       </section>
 
-      <Footer />
+      <div className="mx-4">
+        {" "}
+        <Footer />
+      </div>
     </div>
   );
 };

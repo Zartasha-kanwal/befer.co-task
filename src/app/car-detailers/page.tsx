@@ -175,14 +175,14 @@ const CarDetailers = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-[#111927] lg:mx-4">
+      <div className="min-h-screen bg-[#111927] ">
         {/* Header */}
         <Header />
 
         {/* Hero Section */}
         <section
           ref={autoRef}
-          className="relative min-h-screen  text-white overflow-hidden"
+          className="relative min-h-screen  text-white overflow-hidden "
         >
           {/* Background Elements */}
           <div className="absolute inset-0">
@@ -400,7 +400,7 @@ const CarDetailers = () => {
         {/* Features Section */}
         <section
           ref={sectionRef}
-          className="features relative py-20 text-white bg-[#1D293C] rounded-3xl"
+          className="features relative py-20 text-white bg-[#1D293C] rounded-3xl mx-4"
         >
           {/* background grid */}
           <div className="absolute inset-0 opacity-[0.08] pointer-events-none">
@@ -458,7 +458,7 @@ const CarDetailers = () => {
         </section>
 
         {/* Showcase Section */}
-        <section id="showcase" className="py-20 text-white ">
+        <section id="showcase" className="py-20 text-white mx-4">
           <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
               {benefits.map((benefit, i) => (
@@ -505,7 +505,7 @@ const CarDetailers = () => {
         </section>
 
         {/* Stats Section */}
-        <section id="stats" className="py-20 text-white ">
+        <section id="stats" className="py-20 text-white mx-4">
           <div className="container mx-auto px-6 text-center  ">
             <h2 className="text-4xl font-bold mb-4 ">
               Trusted by Leading Detailing Shops
@@ -537,7 +537,10 @@ const CarDetailers = () => {
         </section>
 
         {/* CTA Section */}
-        <section id="cta" className="bg-[#111927] text-white py-20 text-center">
+        <section
+          id="cta"
+          className="bg-[#111927] text-white py-20 text-center mx-4"
+        >
           <div className="container mx-auto px-6 max-w-2xl">
             <h2 className="text-4xl font-bold mb-6">
               Ready to Detail Your Way to Success?
@@ -561,7 +564,9 @@ const CarDetailers = () => {
         </section>
 
         {/* Footer */}
-        <Footer />
+        <div className="mx-4">
+          <Footer />
+        </div>
       </div>
     </>
   );

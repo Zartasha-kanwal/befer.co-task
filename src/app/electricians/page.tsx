@@ -369,8 +369,9 @@ const Electricians = () => {
           </p>
         </div>
       </section>
-
-      <Footer />
+        
+        <div className="mx-4"><Footer /></div>
+      
     </div>
   );
 };

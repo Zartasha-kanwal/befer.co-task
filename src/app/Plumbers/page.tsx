@@ -32,7 +32,6 @@ const Button: React.FC<{
   </button>
 );
 
-
 const Plumbers = () => {
   const features = [
     {
@@ -82,7 +81,7 @@ const Plumbers = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background lg:mx-4">
+    <div className="min-h-screen bg-background ">
       <Header />
 
       {/* Hero Section */}
@@ -158,7 +157,7 @@ const Plumbers = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 relative overflow-hidden rounded-3xl bg-[#1D293C]">
+      <section className="py-20 relative overflow-hidden rounded-3xl bg-[#1D293C] mx-4">
         <div className="absolute inset-0 opacity-[0.08] pointer-events-none">
           <svg width="100%" height="100%" className="w-full h-full">
             <defs>
@@ -222,8 +221,7 @@ const Plumbers = () => {
 
             {/* Right: Feature Highlight Card */}
             <div className="relative">
-              <div
-                className="rounded-3xl bg-gradient-to-br from-accent/20 to-accent/5 p-8 shadow-[0_0_40px_rgba(0,88,255,0.25)]">
+              <div className="rounded-3xl bg-gradient-to-br from-accent/20 to-accent/5 p-8 shadow-[0_0_40px_rgba(0,88,255,0.25)]">
                 <h3 className="text-2xl font-bold text-white mb-6">
                   Your Control Center
                 </h3>
@@ -276,7 +274,7 @@ const Plumbers = () => {
       </section>
 
       {/* Emergency Response Feature */}
-      <section className="py-20">
+      <section className="py-20 mx-4">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8 text-white">
@@ -299,13 +297,12 @@ const Plumbers = () => {
                 Start Your Free Trial
               </Button>
             </div>
+
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-red-100 p-6 rounded-2xl service-card">
                 <div className="flex items-center space-x-2 mb-3">
-                  <Phone className="h-5 w-5 text-red-500" />
-                  <h4 className="font-semibold text-gray-800">
-                    Emergency Calls
-                  </h4>
+                  <Phone className="h-5 w-5 text-red-500 " />
+                  <h4 className="font-semibold text-gray-800">Urgency</h4>
                 </div>
                 <p className="text-sm text-gray-600 mb-4">Today</p>
                 <div className="text-2xl font-bold text-red-500">7</div>
@@ -349,7 +346,7 @@ const Plumbers = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-20 bg-secondary/30 mx-4">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 text-white">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -390,7 +387,7 @@ const Plumbers = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="hero-section text-white py-20 bg-[#111927]">
+      <section className="hero-section text-white py-20 bg-[#111927] mx-4">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto space-y-8">
             <h2 className="text-3xl md:text-4xl font-bold">
@@ -415,7 +412,9 @@ const Plumbers = () => {
         </div>
       </section>
 
-      <Footer />
+      <div className="mx-4">
+        <Footer />
+      </div>
     </div>
   );
 };
