@@ -33,3 +33,13 @@ To run the project locally:
 npm install
 npm run dev
 Then open http://localhost:3000 in your browser.
+
+
+
+Notes:
+This project focuses on following given specifications, translating designs into code, and maintaining clean, readable frontend architecture under task constraints.
+
+👩‍💻 Author
+
+Zartasha Kanwal
+GitHub: https://github.com/Zartasha-kanwal
