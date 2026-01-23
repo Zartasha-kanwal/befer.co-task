@@ -40,14 +40,14 @@ Then open http://localhost:3000
 
 
 
-## Notes:
+## **Notes**
 
 This project focuses on:
 Translating designs into code
 Following given specifications
 Maintaining a clean, readable frontend architecture
 
-## 👩‍💻 Author:
+## 👩‍💻 **Author**
 
 Zartasha Kanwal
 GitHub: https://github.com/Zartasha-kanwal
